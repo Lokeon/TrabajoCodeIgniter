@@ -76,3 +76,4 @@ application/logs/*
 .nfs*
 
 # End of https://www.gitignore.io/api/linux
+.wakatime-project
