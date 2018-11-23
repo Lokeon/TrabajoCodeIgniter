@@ -77,3 +77,4 @@ application/logs/*
 
 # End of https://www.gitignore.io/api/linux
 .wakatime-project
+application/tests/build
