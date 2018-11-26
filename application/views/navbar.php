@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
 	<a class="navbar-brand" href="#">Reviews</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03"
 	 aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+	<div class="float-right">
 	<div class="collapse navbar-collapse" id="navbarsExample03">
 		<?php if (!empty($this->session->userdata('user_id'))) : ?>
 		<ul class="navbar-nav mr-auto">
@@ -18,14 +19,15 @@
 			</li>
 		</ul>
 		<?php else : ?>
-		<form class="form-inline my-2 my-md-0">
+			<form class="form-inline my-2 my-md-0">
 			<div class="form-group">
 				<a href="<?= base_url() . 'welcome/login' ?>" role="button" class="btn btn-primary btn-block">Inicio de Sesion</a>
 			</div>
 			<div class="form-group">
-				<a href="<?= base_url() . 'welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Hola</a>
+				<a href="<?= base_url() . 'welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Registrar</a>
 			</div>
-		</form>
+			</form>
 		<?php endif; ?>
+	</div>
 	</div>
 </nav>

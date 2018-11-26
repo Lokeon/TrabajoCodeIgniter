@@ -32,18 +32,12 @@ class Welcome extends CI_Controller
 
     public function signup()
     {
-        $this->load->view('head');
-        $this->load->view('navbar');
-        $this->load->view('sign_up_view');
-        $this->load->view('footer');
+        redirect("/Sign_up");
     }
 
     public function login()
     {
-        $this->load->view('head');
-        $this->load->view('navbar');
-        $this->load->view('log_in_view');
-        $this->load->view('footer');
+        redirect("/Log_in");
     }
 
 }

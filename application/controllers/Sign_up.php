@@ -10,7 +10,10 @@ class Sign_up extends CI_Controller
 
     public function index()
     {
+        $this->load->view('head');
+        $this->load->view('navbar');
         $this->load->view('sign_up_view');
+        $this->load->view('footer');
     }
 
  /*   public function sign_up()
