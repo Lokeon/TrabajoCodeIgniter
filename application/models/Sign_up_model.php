@@ -1,6 +1,4 @@
-
-<?PHP
-
+<?php
 class Sign_up_model extends CI_Model
 {
 
@@ -9,31 +7,20 @@ class Sign_up_model extends CI_Model
         parent::__construct();
     }
 
-    public function verify_user($user)
+    public function create_new_user()
     {
-        $ssql = "SELECT * FROM users WHERE username=$user";
-        $consulta = $this->db->query($ssql);
-        return ($consulta->num_rows() == 0) ? false : true;
-    }
-
-    public function verify_email($email)
-    {
-        $ssql = "SELECT * FROM users WHERE email=$email";
-        $consulta = $this->db->query($ssql);
-        return ($consulta->num_rows() == 0) ? false : true;
-
-    }
-
-    public function sign_up_user()
-    {
+        $username = $this->input->post('username', true);
+        $email = $this->input->post('email', true);
+        $pass = password_hash($this->input->post('pass', true), PASSWORD_BCRYPT, array('cost' => 11));
         $this->db->insert(
             'users',
             array(
-                'username' => $this->input->post('username', true),
-                'email' => $this->input->post('email', true),
-                'pass' => $this->input->post('pass', true)
+                'username' => $username,
+                'email' => $email,
+                'pass' => $pass,
             )
         );
+        return ($this->db->affected_rows() != 1) ? false : true;
     }
 
 }

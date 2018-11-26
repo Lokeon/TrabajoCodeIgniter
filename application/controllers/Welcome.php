@@ -21,8 +21,16 @@ class Welcome extends CI_Controller
     {
         $this->load->view('Head');
         $this->load->view('NavBar');
-        $this->load->view('sign_up_view');
-        $this->load->view('Footer');
-        //$this->load->view('welcome_message');
+        //$this->load->view('Welcome_view');
+        $this->load->view('footer');
+    }
+
+    public function where_to_go()
+    {
+        if ($this->input->post('login')) {
+            redirect('/Log_in');
+        } elseif ($this->input->post('signup')) {
+            redirect('/Sign_up');
+        }
     }
 }
