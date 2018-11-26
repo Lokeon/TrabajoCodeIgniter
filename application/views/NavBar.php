@@ -4,8 +4,8 @@
 	 aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-
 	<div class="collapse navbar-collapse" id="navbarsExample03">
+		<?php if (!empty($this->session->userdata('user_id'))): ?>
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
@@ -17,6 +17,7 @@
 				</div>
 			</li>
 		</ul>
+		<?php else: ?>
 		<form class="form-inline my-2 my-md-0">
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block">Log in</button>
@@ -25,5 +26,6 @@
 				<button type="submit" class="btn btn-primary btn-block">Sign up</button>
 			</div>
 		</form>
+		<?php endif; ?>
 	</div>
 </nav>
