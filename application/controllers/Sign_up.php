@@ -15,7 +15,7 @@ class Sign_up extends CI_Controller
     public function verify_sign_up()
     {
         if ($this->input->post('submit_reg')) {
-            $this->form_validation->set_rules('usuario', 'Usuario', 'required|trim|callback_verify_user');
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|callback_verify_user');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|callback_verify_email');
             $this->form_validation->set_rules('email2', 'Confirm email', 'required|valid_email|trim|matches[email]');
             $this->form_validation->set_rules('pass', 'Password', 'required|trim');
@@ -44,21 +44,5 @@ class Sign_up extends CI_Controller
     function verify_email($email)
     {
         return !($this->sign_up_model->verify_email($email));
-    }
-
-    public function verify_sesion() {
-        if($this->input->post('submit')) {
-            $variable = $this->sign_up_model->verify_sesion();
-            if($variable == true) {
-                $variables = array ('usuario' => $this->input->post('user'));
-                $this->session->set_userdata($variables);
-                redirect(base_url().'index.php/articulos');
-            } else { //el login no es correcto
-                $mensaje = array('mensaje' => 'El usuario/contraseña no son correctos.');
-                $this->load->view('usuarios_view',$mensaje);
-            }
-        } else { //si no hay submit, redirecciona a usuarios.php
-        redirect(base_url().'usuarios');
-        }
     }
 }

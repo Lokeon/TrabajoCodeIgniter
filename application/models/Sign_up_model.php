@@ -36,13 +36,4 @@ class Sign_up_model extends CI_Model
         );
     }
 
-    public function verify_sesion() {
-        $consulta = $this->db->get_where('users',array('user'=>$this->input->post('username',TRUE),
-        'password'=>$this->input->post('pass',TRUE)));
-        if($consulta->num_rows() == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
