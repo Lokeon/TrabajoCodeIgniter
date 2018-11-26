@@ -30,16 +30,20 @@ class Welcome extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function where_to_go()
+    public function signup()
     {
-        if ($this->input->post('login')) {
-            redirect('/Log_in');
-        } elseif ($this->input->post('signup')) {
-            redirect('/Sign_up');
-            $this->load->view('head');
-            $this->load->view('navbar');
-            $this->load->view('sign_up_view');
-            $this->load->view('footer');
-        }
+        $this->load->view('head');
+        $this->load->view('navbar');
+        $this->load->view('sign_up_view');
+        $this->load->view('footer');
     }
+
+    public function login()
+    {
+        $this->load->view('head');
+        $this->load->view('navbar');
+        $this->load->view('log_in_view');
+        $this->load->view('footer');
+    }
+
 }

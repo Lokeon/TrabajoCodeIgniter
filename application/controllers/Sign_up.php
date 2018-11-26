@@ -10,13 +10,13 @@ class Sign_up extends CI_Controller
 
     public function index()
     {
-        $this->load->view('welcome_message');
-    }
-
-    public function sign_up()
-    {
         $this->load->view('sign_up_view');
     }
+
+ /*   public function sign_up()
+    {
+        $this->load->view('sign_up_view');
+    }*/
 
     public function verify_sign_up()
     {
