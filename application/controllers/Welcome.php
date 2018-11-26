@@ -17,10 +17,15 @@ class Welcome extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index()
     {
-        $this->load->view('Head');
-        $this->load->view('NavBar');
+        $this->load->view('head');
+        $this->load->view('navbar');
         //$this->load->view('Welcome_view');
         $this->load->view('footer');
     }
@@ -31,6 +36,10 @@ class Welcome extends CI_Controller
             redirect('/Log_in');
         } elseif ($this->input->post('signup')) {
             redirect('/Sign_up');
+            $this->load->view('head');
+            $this->load->view('navbar');
+            $this->load->view('sign_up_view');
+            $this->load->view('footer');
         }
     }
 }

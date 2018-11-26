@@ -20,10 +20,10 @@
 		<?php else: ?>
 		<form class="form-inline my-2 my-md-0">
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block" value="login">Log in</button>
+				<button type="submit" class="btn btn-primary btn-block" name="login">Log in</button>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block"  value="signup">Sign up</button>
+				<button type="submit" class="btn btn-primary btn-block"  name="signup">Sign up</button>
 			</div>
 		</form>
 		<?php endif; ?>
