@@ -1,10 +1,16 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 class Sign_up extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
+    }
+
+    public function index()
+    {
+        $this->load->view('welcome_message');
     }
 
     public function sign_up()
@@ -36,12 +42,12 @@ class Sign_up extends CI_Controller
         }
     }
 
-    function verify_user($user)
+    public function verify_user($user)
     {
         return !($this->sign_up_model->verify_user($user));
     }
 
-    function verify_email($email)
+    public function verify_email($email)
     {
         return !($this->sign_up_model->verify_email($email));
     }

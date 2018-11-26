@@ -77,7 +77,7 @@ $db['default'] = array(
     'dsn' => 'mysql:host=localhost; dbname=review; charset=utf8;',
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '',
+    'password' => '998022',
     'database' => '',
     'dbdriver' => 'pdo',
     'dbprefix' => '',
