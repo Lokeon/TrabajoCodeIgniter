@@ -6,6 +6,7 @@ class Sign_up extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('email');
     }
 
     public function index()
@@ -19,11 +20,26 @@ class Sign_up extends CI_Controller
             if ($this->form_validation->run() === false) {
                 generate_view($this, 'Sign Up', 'sign_up_view');
             } else {
-                $this->sign_up_model->create_new_user();
-                //$datos = array('mensaje' => 'El usuario se ha registrado correctamente.');
-                //$this->load->view('registro_view', $datos);
-                echo "exito";
+                if ($this->sign_up_model->create_new_user()) {
+                    echo "registrado y email enviado";
+                } else {
+                    echo "no registrado y/o email no enviado";
+                }
+                //generate_view() PARA LA VISTA CUANDO SE REGISTRE EL COLEGA
             }
+        }
+    }
+
+    public function validate_email()
+    {
+        $email = $this->input->get('email', true);
+        $hash = $this->input->get('hash', true);
+        if ($this->sign_up_model->validate_email_hash($email, $hash)) {
+            //view confirmacion de email
+            echo "email confirmado";
+        } else {
+            //view denegacion url
+            echo "email ya confirmado o url no valida";
         }
     }
 }

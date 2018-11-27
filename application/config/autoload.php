@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |    $autoload['libraries'] = array('user_agent' => 'ua');
  */
-$autoload['libraries'] = array('database', 'session', 'form_validation');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'email', 'parser');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |    $autoload['helper'] = array('url', 'file');
  */
-$autoload['helper'] = array('url', 'form', 'viewloader');
+$autoload['helper'] = array('url', 'form', 'viewloader', 'email');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'form', 'viewloader');
 | config files.  Otherwise, leave it blank.
 |
  */
-$autoload['config'] = array();
+$autoload['config'] = array('smtp_email');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |    $autoload['model'] = array('first_model' => 'first');
  */
-$autoload['model'] = array('sign_up_model');
+$autoload['model'] = array('sign_up_model', 'log_in_model');

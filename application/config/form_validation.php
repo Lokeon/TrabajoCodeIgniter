@@ -40,6 +40,26 @@ $config = array(
             ),
         ),
     ),
+    'Log_in/verify_log_in' => array(
+        array(
+            'field' => 'username',
+            'label' => 'nombre de usuario',
+            'rules' => 'trim|required|callback_is_confirmed',
+            'errors' => array(
+                'required' => 'Debes insertar un %s o correo electrónico.',
+                'is_confirmed' => 'Correo electrónico no verificado.',
+            ),
+        ),
+        array(
+            'field' => 'pass',
+            'label' => 'contraseña',
+            'rules' => 'trim|required|callback_is_valid_user[username]',
+            'errors' => array(
+                'required' => 'Debes insertar una %s.',
+                'is_valid_user' => 'Usuario y/o contraseña incorrectos.',
+            ),
+        ),
+    ),
 );
 $config['error_prefix'] = '<div class="alert alert-danger">
 <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>';
