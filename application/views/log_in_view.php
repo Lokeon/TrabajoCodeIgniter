@@ -5,13 +5,14 @@
 				<h3 class="text-center mb-4">Iniciar sesión</h3>
 				<!--<div class="alert alert-danger">
 					<a class="close font-weight-light" data-dismiss="alert" href="#">×</a>Password is too short.
-				</div>-->
+                </div>-->
+                <?php echo form_open('log_in/algo'); ?>
 				<fieldset>
 					<div class="form-group has-error">
-						<input class="form-control input-lg" placeholder="Correo electrónico o nombre de usuario" name="username" value="" type="text">
+						<input class="form-control input-lg" placeholder="Correo electrónico o nombre de usuario" name="username" value="<?php echo set_value('username'); ?>" type="text">
 					</div>
 					<div class="form-group has-success">
-						<input class="form-control input-lg" placeholder="Contraseña" name="pass" value="" type="password">
+						<input class="form-control input-lg" placeholder="Contraseña" name="pass" value="<?php echo set_value('password'); ?>" type="password">
 					</div>
 					<div class="float-right">
 							<input class="btn btn-lg btn-primary" value="Iniciar sesión" type="submit">
@@ -22,7 +23,8 @@
 							<label class="custom-control-label" for="defaultChecked2">Recordarme</label>
 						</div>
 					</div>
-				</fieldset>
+                </fieldset>
+                <?php echo form_close(); ?>
 			</div>
 		</div>
 	</div>

@@ -10,38 +10,20 @@ class Sign_up extends CI_Controller
 
     public function index()
     {
-        $this->load->view('head');
-        $this->load->view('navbar');
-        $this->load->view('sign_up_view');
-        $this->load->view('footer');
+        generate_view($this, 'Sign Up', 'sign_up_view');
     }
-
- /*   public function sign_up()
-    {
-        $this->load->view('sign_up_view');
-    }*/
 
     public function verify_sign_up()
     {
-        if ($this->input->post('submit_reg')) {
-            
-            if ($this->form_validation->run() == false) {
-                $this->sign_up();
+        if ($this->input->post('submit')) {
+            if ($this->form_validation->run() === false) {
+                generate_view($this, 'Sign Up', 'sign_up_view');
             } else {
-                $this->sign_up_model->sign_up_user();
-                $datos = array('mensaje' => 'El usuario se ha registrado correctamente.');
-                $this->load->view('registro_view', $datos);
+                $this->sign_up_model->create_new_user();
+                //$datos = array('mensaje' => 'El usuario se ha registrado correctamente.');
+                //$this->load->view('registro_view', $datos);
+                echo "exito";
             }
         }
-    }
-
-    public function verify_user($user)
-    {
-        return !($this->sign_up_model->verify_user($user));
-    }
-
-    public function verify_email($email)
-    {
-        return !($this->sign_up_model->verify_email($email));
     }
 }
