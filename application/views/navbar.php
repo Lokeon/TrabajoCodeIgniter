@@ -5,29 +5,33 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="float-right">
-	<div class="collapse navbar-collapse" id="navbarsExample03">
-		<?php if ($this->session->has_userdata('logged')): ?>
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="false">Usuario</a>
-				<div class="dropdown-menu" aria-labelledby="dropdown03">
-					<a class="dropdown-item" href="#">Perfil</a>
-					<a class="dropdown-item" href="#">Mis Reviews</a>
-					<a class="dropdown-item" href="<?=base_url() . 'Log_in/logout' ?>">Log out</a>
+		<div class="collapse navbar-collapse" id="navbarsExample03">
+			<?php if ($this->session->has_userdata('logged')): ?>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Usuario</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown03">
+						<a class="dropdown-item" href="#">Perfil</a>
+						<a class="dropdown-item" href="#">Mis Reviews</a>
+						<a class="dropdown-item" href="<?=base_url() . 'Log_in/logout' ?>">Log out</a>
+					</div>
+				</li>
+			</ul>
+			<?php else: ?>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<a href="<?= base_url() . '/welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Registrar</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<a href="<?= base_url() . 'welcome/login' ?>" role="button" class="btn btn-primary btn-block">Iniciar sesión</a>
+						</div>
+					</div>
 				</div>
-			</li>
-		</ul>
-		<?php else: ?>
-			<form class="form-inline my-2 my-md-0">
-			<div class="form-group">
-				<a href="<?= base_url() . 'welcome/login' ?>" role="button" class="btn btn-primary btn-block">Inicio de Sesion</a>
-			</div>
-			<div class="form-group">
-				<a href="<?= base_url() . '/welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Registrar</a>
-			</div>
-			</form>
-		<?php endif; ?>
-	</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </nav>
