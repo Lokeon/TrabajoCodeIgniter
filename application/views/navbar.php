@@ -21,10 +21,10 @@
 		<?php else: ?>
 			<form class="form-inline my-2 my-md-0">
 			<div class="form-group">
-				<a href="<?=base_url() . 'welcome/login' ?>" role="button" class="btn btn-primary btn-block">Inicio de Sesion</a>
+				<a href="<?= base_url() . 'welcome/login' ?>" role="button" class="btn btn-primary btn-block">Inicio de Sesion</a>
 			</div>
 			<div class="form-group">
-				<a href="<?=base_url() . 'welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Registrar</a>
+				<a href="<?= base_url() . '/welcome/signup' ?>" role="button" class="btn btn-primary btn-block">Registrar</a>
 			</div>
 			</form>
 		<?php endif; ?>
