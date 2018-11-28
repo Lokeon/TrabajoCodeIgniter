@@ -1,4 +1,6 @@
-<div class="card" style="width: 18rem; padding: 0 12px 14px">
+<div class="row">
+    <div class="col">
+<div class="card">
     <img class="card-img-top" src="{image}" alt="Imagen">
     <div class="card-body">
         <h5 class="card-title">{nombreproducto}</h5>
@@ -17,4 +19,6 @@
         <br>
         <a href="{linkarticulo}" class="btn btn-primary">Ver artículo</a>
     </div>
+</div>
+</div>
 </div>
