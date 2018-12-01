@@ -20,18 +20,22 @@ class Welcome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $settings = $this->config->item('pagination');
+        $settings['total_rows'] = $this->articles_model->countArticles();
+        $this->pagination->initialize($settings);
     }
 
     public function index()
     {
-        if ($this->uri->segment(3)) {
-            $page = $this->uri->segment(3);
+        if ($page = (int)$this->input->get('per_page', true)) {
+            $fin = $page * $this->pagination->per_page;
+            $inicio = $fin - $this->pagination->per_page + 1;
         } else {
-            $page = 1;
+            $inicio = 1;
+            $fin = $this->pagination->per_page;
         }
-        $data["results"] = $this->pagination_model->fetch_data($page, $config["per_page"]);
-        $str_links = $this->pagination->create_links();
-        $data["links"] = explode('&nbsp;', $str_links);
+        $data["results"] = $this->articles_model->getArticles($inicio, $fin);
+        $data["links"] = $this->pagination->create_links();
         generate_view($this, 'Review', 'welcome_view', $data);
     }
 
@@ -47,14 +51,16 @@ class Welcome extends CI_Controller
 
     public function articles()
     {
-        if ($this->uri->segment(3)) {
-            $page = $this->uri->segment(3);
+        if ($this->uri->segment(1)) {
+            $fin = $this->uri->segment(1) * $config["per_page"];
+            $inicio = $fin - $config["per_page"] + 1;
         } else {
-            $page = 1;
+            $inicio = 1;
+            $fin = 8;
         }
-        $data["results"] = $this->pagination_model->fetch_data($page, $config["per_page"]);
+        $data["results"] = $this->articles_model->getArticles($inicio, $fin);
         $str_links = $this->pagination->create_links();
         $data["links"] = explode('&nbsp;', $str_links);
+        generate_view($this, 'Review', 'welcome_view', $data);
     }
-
 }

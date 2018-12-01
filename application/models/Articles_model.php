@@ -15,9 +15,10 @@ class Articles_model extends CI_Model
     {
         $this->db->limit($limit);
         $this->db->where('id', $id);
-        $query = $this->db->get('articles');
-        if ($query->num_rows() > 0) {
-            foreach ($query->result() as $row) {
+        $query = "SELECT * FROM articles WHERE id BETWEEN $id AND $limit";
+        $result = $this->db->query($query);
+        if ($result->num_rows() > 0) {
+            foreach ($result->result() as $row) {
                 $data[] = $row;
             }
             return $data;

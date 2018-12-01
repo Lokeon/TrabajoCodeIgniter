@@ -1,6 +1,6 @@
 <div class="col-sm-3">
 <div class="card">
-    <img class="card-img-top" src="{image}" alt="Imagen" width="162" height="135">
+    <img class="card-img-top" src="{image}" alt="Imagen" width="128" height="256">
     <div class="card-body">
         <h5 class="card-title">{nombreproducto}</h5>
         <div class="container">
