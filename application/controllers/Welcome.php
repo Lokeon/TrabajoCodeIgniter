@@ -48,19 +48,4 @@ class Welcome extends CI_Controller
     {
         redirect("/Log_in");
     }
-
-    public function articles()
-    {
-        if ($this->uri->segment(1)) {
-            $fin = $this->uri->segment(1) * $config["per_page"];
-            $inicio = $fin - $config["per_page"] + 1;
-        } else {
-            $inicio = 1;
-            $fin = 8;
-        }
-        $data["results"] = $this->articles_model->getArticles($inicio, $fin);
-        $str_links = $this->pagination->create_links();
-        $data["links"] = explode('&nbsp;', $str_links);
-        generate_view($this, 'Review', 'welcome_view', $data);
-    }
 }

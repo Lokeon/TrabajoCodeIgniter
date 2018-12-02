@@ -2,11 +2,11 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
             <div class="card-body">
-                <h5 class="card-title text-center">Sign In</h5>
-                <form class="form-signin">
+                <h1 class="card-title text-center">Iniciar sesión</h1>
+                <?php echo form_open('Log_in/verify_log_in', array('class' => 'form-signin')); ?>
                     <div class="form-label-group">
-                        <input type="text" id="inputEmail" class="form-control" placeholder="Correo electrónico o nombre de usuario" requiredautofocus name="username">
-                        <label for="inputEmail">Correo electrónico o nombre de usuario</label>
+                        <input type="text" id="inputEmail" class="form-control" placeholder="Correo electrónico o nombre de usuario" required autofocus name="username">
+                        <label for="inputEmail">Nombre de usuario</label>
                     </div>
 
                     <div class="form-label-group">
@@ -14,11 +14,14 @@
                         <label for="inputPassword">Contraseña</label>
                     </div>
 
+                    <?php echo form_error('username'); ?>
+                    <?php echo form_error('pass'); ?>
+
                     <div class="custom-control custom-checkbox mb-3">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">Recordarme</label>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Iniciar sesión</button>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" value="Iniciar sesión" type="submit" name="submit">Iniciar sesión</button>
                 </form>
             </div>
         </div>
