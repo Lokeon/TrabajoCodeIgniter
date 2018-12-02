@@ -15,15 +15,15 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown03">
                         <a class="dropdown-item" href="#">Perfil</a>
                         <a class="dropdown-item" href="#">Mis Reviews</a>
-                        <a class="dropdown-item" href="<?=base_url() . 'Log_in/logout' ?>">Log out</a>
+                        <a class="dropdown-item" href="<?=base_url('Log_in/logout') ?>">Log out</a>
                     </div>
                 </li>
                 <?php else: ?>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?=base_url() . 'welcome/signup' ?>">Regístrate</a>
+                    <a class="nav-link text-primary" href="<?=base_url('welcome/signup') ?>">Regístrate</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?=base_url() . 'welcome/login' ?>">Iniciar sesión</a>
+                    <a class="nav-link text-primary" href="<?=base_url('welcome/login') ?>">Iniciar sesión</a>
                 </li>
                 <?php endif; ?>
             </ul>

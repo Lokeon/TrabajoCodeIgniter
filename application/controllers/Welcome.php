@@ -27,16 +27,20 @@ class Welcome extends CI_Controller
 
     public function index()
     {
-        if ($page = (int)$this->input->get('per_page', true)) {
+        if ($page = $this->uri->segment(3)) {
             $fin = $page * $this->pagination->per_page;
             $inicio = $fin - $this->pagination->per_page + 1;
         } else {
             $inicio = 1;
             $fin = $this->pagination->per_page;
         }
-        $data["results"] = $this->articles_model->getArticles($inicio, $fin);
-        $data["links"] = $this->pagination->create_links();
-        generate_view($this, 'Review', 'articles/welcome_view', $data);
+        if ($data["results"] = $this->articles_model->getArticles($inicio, $fin)) {
+            $data["links"] = $this->pagination->create_links();
+            $data["logged"] = $this->session->has_userdata('logged') == true;
+            generate_view($this, 'Review', 'articles/welcome_view', $data);
+        } else {
+            redirect('/');
+        }
     }
 
     public function signup()

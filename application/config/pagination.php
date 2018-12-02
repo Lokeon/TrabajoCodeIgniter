@@ -1,12 +1,13 @@
 <?php
 $config = array(
-    'base_url' => base_url(),
+    'base_url' => base_url('welcome/index'),
     'total_rows' => 100,
     'per_page' => 8,
     'use_page_numbers' => true,
     'num_links' => 'empty',
 );
-$config['page_query_string'] = true;
+//$config['page_query_string'] = true;
+$config['uri_segment'] = 3;
 $config['full_tag_open'] = '<div class="pagination-lg text-center"><nav><ul class="pagination justify-content-center">';
 $config['full_tag_close'] = '</ul></nav></div>';
 $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
