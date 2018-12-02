@@ -96,3 +96,7 @@
 .alert {
     border-radius: 2.25rem;
 }
+
+#paginator {
+    margin-top: 20px;
+}

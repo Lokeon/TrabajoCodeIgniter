@@ -36,7 +36,7 @@ class Welcome extends CI_Controller
         }
         $data["results"] = $this->articles_model->getArticles($inicio, $fin);
         $data["links"] = $this->pagination->create_links();
-        generate_view($this, 'Review', 'welcome_view', $data);
+        generate_view($this, 'Review', 'articles/welcome_view', $data);
     }
 
     public function signup()

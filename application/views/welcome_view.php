@@ -11,5 +11,4 @@ foreach ($results as $elto) {
     );
     print($this->parser->parse('article_card_view', $data, true));
 }
-echo '</div>' . $links; ?>
-</div>
+echo '</div></div>' . $links; ?>
