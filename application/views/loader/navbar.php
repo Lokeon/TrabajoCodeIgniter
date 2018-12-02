@@ -1,5 +1,6 @@
 <div id="hero">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
         <a href="<?=base_url() ?>" class="navbar-brand text-primary" id="logo">Reviews</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +27,7 @@
                 </li>
                 <?php endif; ?>
             </ul>
+        </div>
         </div>
     </nav>
 </div>
