@@ -8,6 +8,6 @@ class Articles extends CI_Controller
 
     public function testArticle()
     {
-        print($this->article_model->getStar('1'));
+        print($this->articles_model->getStar('1'));
     }
 }
