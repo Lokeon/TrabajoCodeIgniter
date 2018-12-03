@@ -2,7 +2,7 @@
     <div class="col">
         <div class="card card-signin my-4">
             <div class="card-body">
-                <h1 class="card-title text-center"><?= $mensaje ?></h1>
+                <h1 class="card-title text-center"><?=$mensaje ?></h1>
                 </form>
             </div>
         </div>
@@ -10,6 +10,6 @@
 </div>
 <script>
     setTimeout(function () {
-        window.location.href= 'Welcome';
+        window.location.href= <?php base_url() ?>;
     }, 5000);
 </script>
