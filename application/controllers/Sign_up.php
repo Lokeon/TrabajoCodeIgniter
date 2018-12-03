@@ -21,11 +21,17 @@ class Sign_up extends CI_Controller
                 generate_view($this, 'Sign Up', 'sign_up_view');
             } else {
                 if ($this->sign_up_model->create_new_user()) {
-                    echo "registrado y email enviado";
+                    $data = array(
+                        'titulo' => "Correo enviado",
+                        'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>",
+                    );
                 } else {
-                    echo "no registrado y/o email no enviado";
+                    $data = array(
+                        'titulo' => "Error en registro",
+                        'mensaje' => "Se ha producido un error en el registro<br>Por favor, intentelo de nuevo<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>"
+                    );
                 }
-                //generate_view() PARA LA VISTA CUANDO SE REGISTRE EL COLEGA
+                generate_view($this, $data['titulo'], 'end_form_view', $data); 
             }
         }
     }
