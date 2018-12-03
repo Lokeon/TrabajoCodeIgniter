@@ -10,4 +10,9 @@ class Articles extends CI_Controller
     {
         print($this->articles_model->getStar('1'));
     }
+
+    public function testArticleUser()
+    {
+        print($this->articles_model->getStarUser('1', '1'));
+    }
 }
