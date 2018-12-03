@@ -24,11 +24,13 @@ class Sign_up extends CI_Controller
                     $data = array(
                         'titulo' => "Correo enviado",
                         'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>",
+                        'url' => base_url(),
                     );
                 } else {
                     $data = array(
                         'titulo' => "Error en registro",
                         'mensaje' => "Se ha producido un error en el registro<br>Por favor, intentelo de nuevo<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>",
+                        'url' => base_url(),
                     );
                 }
                 generate_view($this, $data['titulo'], 'end_form_view', $data);
@@ -43,12 +45,14 @@ class Sign_up extends CI_Controller
         if ($this->sign_up_model->validate_email_hash($email, $hash)) {
             $data = array(
                 'titulo' => "Email confirmado",
-                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Login') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'url' => base_url('Log_in'),
             );
         } else {
             $data = array(
                 'titulo' => "Email ya confirmado o no valido",
-                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Login') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'url' => base_url('Log_in'),
             );
         }
         generate_view($this, $data['titulo'], 'end_form_view', $data);

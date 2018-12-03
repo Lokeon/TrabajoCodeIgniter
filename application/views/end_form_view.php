@@ -9,6 +9,6 @@
 </div>
 <script>
     setTimeout(function () {
-        window.location.href="<?php base_url(); ?>";
+        window.location.href="<?=$url ?>";
     }, 5000);
 </script>
