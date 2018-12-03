@@ -51,7 +51,7 @@ class Sign_up extends CI_Controller
         } else {
             $data = array(
                 'titulo' => "Error confirmación",
-                'mensaje' => "Su correo electrónico ya ha sido confirmado o no el enlace no es valido<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'mensaje' => "Su correo electrónico ya ha sido confirmado o el enlace no es valido<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
                 'url' => base_url('Log_in'),
             );
         }
