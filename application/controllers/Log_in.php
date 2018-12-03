@@ -48,8 +48,7 @@ class Log_in extends CI_Controller
                         'logged' => true,
                     )
                 );
-                // TODO cambiar a welcome logged
-                generate_view($this, 'Log in', 'log_out_view');
+                redirect('/');
             }
         }
     }
@@ -58,8 +57,7 @@ class Log_in extends CI_Controller
     {
         $this->session->unset_userdata(array('user', 'logged'));
         $this->session->sess_destroy();
-        // TODO cambiar a welcome
-        generate_view($this, 'Log in', 'log_in_view');
+        redirect('/');
     }
 
 }

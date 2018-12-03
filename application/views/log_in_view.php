@@ -1,30 +1,29 @@
-<div class="container-fluid bg-light py-3">
-	<div class="row">
-		<div class="col-md-6 mx-auto">
-			<div class="card card-body">
-                <h3 class="text-center mb-4">Iniciar sesión</h3>
-                <?php echo form_open('Log_in/verify_log_in'); ?>
-				<fieldset>
-                    <div class="form-group has-error">
-                        <input class="form-control input-lg" placeholder="Correo electrónico o nombre de usuario" name="username" value="<?php echo set_value('username'); ?>" type="text">
-					</div>
-					<div class="form-group has-success">
-                        <input class="form-control input-lg" placeholder="Contraseña" name="pass" value="<?php echo set_value('password'); ?>" type="password">
-					</div>
+<div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+            <div class="card-body">
+                <h1 class="card-title text-center">Iniciar sesión</h1>
+                <?php echo form_open('Log_in/verify_log_in', array('class' => 'form-signin')); ?>
+                    <div class="form-label-group">
+                        <input type="text" id="inputEmail" class="form-control" placeholder="Correo electrónico o nombre de usuario" required autofocus name="username">
+                        <label for="inputEmail">Nombre de usuario</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="pass">
+                        <label for="inputPassword">Contraseña</label>
+                    </div>
+
                     <?php echo form_error('username'); ?>
                     <?php echo form_error('pass'); ?>
-					<div class="float-right">
-                        <input class="btn btn-lg btn-primary" value="Iniciar sesión" name ="submit" type="submit">
+
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Recordarme</label>
                     </div>
-					<div class="form-check form-check-inline">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
-							<label class="custom-control-label" for="defaultChecked2">Recordarme</label>
-						</div>
-					</div>
-                </fieldset>
-                <?php echo form_close(); ?>
-			</div>
-		</div>
-	</div>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" value="Iniciar sesión" type="submit" name="submit">Iniciar sesión</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
