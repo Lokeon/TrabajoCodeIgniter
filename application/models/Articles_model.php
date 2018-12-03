@@ -40,4 +40,10 @@ class Articles_model extends CI_Model
         $star = $this->db->query("SELECT stars FROM comments WHERE id_article='$id_article' AND id_user='$id_user'");
         return $star->result_array()[0]['stars'];
     }
+
+    public function updateStar($id_comentario, $value)
+    {
+        $this->db->query("UPDATE comments SET stars=$value WHERE id=$id_comentario");
+        return $this->db->affected_rows() == 1;
+    }
 }

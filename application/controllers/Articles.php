@@ -13,6 +13,8 @@ class Articles extends CI_Controller
 
     public function testArticleUser()
     {
-        print($this->articles_model->getStarUser('1', '1'));
+        print($this->articles_model->getStarUser(1, 1));
+        $this->articles_model->updateStart(1, 4);
+        print($this->articles_model->getStarUser(1, 1));
     }
 }
