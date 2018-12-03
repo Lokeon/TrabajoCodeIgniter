@@ -5,10 +5,6 @@ class Articles extends CI_Controller
     {
         parent::__construct();
     }
-<<<<<<< HEAD
-}
-?>
-=======
 
     public function testArticle()
     {
@@ -31,4 +27,3 @@ class Articles extends CI_Controller
         //generate_view($this,"Articulo","articles/article_view",$data);
     }
 }
->>>>>>> 8f9ee75a7013a684836dab89dd0e7e0ef0c80205
