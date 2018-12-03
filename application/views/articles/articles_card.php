@@ -3,6 +3,6 @@
     <div class="card-body">
         <h5 class="card-title">{nombreproducto}</h5>
         <p class="card-text">Some example text.</p>
-        <a href="{linkarticulo}" class="btn btn-primary">Ver artículo</a>
+        <a href="{url}" class="btn btn-primary">Ver artículo</a>
     </div>
 </div>

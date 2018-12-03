@@ -10,7 +10,7 @@ for ($i = 0; $i < count($results); ++$i) {
         'image' => $results[$i]->image,
         'nombreproducto' => $results[$i]->name,
         'media' => 0,
-        'linkarticulo' => 0,
+        'url' => base_url('article/' . $results[$i]->id),
     );
     print($this->parser->parse('articles/articles_card', $data, true));
 }
