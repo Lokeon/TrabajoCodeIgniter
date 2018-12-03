@@ -28,10 +28,10 @@ class Sign_up extends CI_Controller
                 } else {
                     $data = array(
                         'titulo' => "Error en registro",
-                        'mensaje' => "Se ha producido un error en el registro<br>Por favor, intentelo de nuevo<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>"
+                        'mensaje' => "Se ha producido un error en el registro<br>Por favor, intentelo de nuevo<br><br><a href=\"" . base_url() . "Welcome\">Pulse aquí si no es redireccionado en unos segundos</a>",
                     );
                 }
-                generate_view($this, $data['titulo'], 'end_form_view', $data); 
+                generate_view($this, $data['titulo'], 'end_form_view', $data);
             }
         }
     }
@@ -41,11 +41,16 @@ class Sign_up extends CI_Controller
         $email = $this->input->get('email', true);
         $hash = $this->input->get('hash', true);
         if ($this->sign_up_model->validate_email_hash($email, $hash)) {
-            //view confirmacion de email
-            echo "email confirmado";
+            $data = array(
+                'titulo' => "Email confirmado",
+                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Login') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+            );
         } else {
-            //view denegacion url
-            echo "email ya confirmado o url no valida";
+            $data = array(
+                'titulo' => "Email ya confirmado o no valido",
+                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Login') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+            );
         }
+        generate_view($this, $data['titulo'], 'end_form_view', $data);
     }
 }
