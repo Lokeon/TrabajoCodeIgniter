@@ -56,6 +56,6 @@ class Articles_model extends CI_Model
     public function getComments($id)
     {
         $comment = $this->db->query("SELECT comment,created,stars FROM comments WHERE id_article=$id");
-        return ($result = $comment->result_array()) ? $result[0] : array();
+        return array('comments' => $comment->result_array());
     }
 }

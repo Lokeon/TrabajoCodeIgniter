@@ -20,7 +20,7 @@ class Articles extends CI_Controller
 
     public function article($id)
     {
-        $data = array_merge($this->articles_model->getArticle($id),$this->articles_model->getComments($id));
+        $data = array_merge(array('average' => $this->articles_model->getStar($id)), $this->articles_model->getArticle($id), $this->articles_model->getComments($id));
         print('<pre>');
         print_r($data);
         print('</pre>');
