@@ -45,13 +45,13 @@ class Sign_up extends CI_Controller
         if ($this->sign_up_model->validate_email_hash($email, $hash)) {
             $data = array(
                 'titulo' => "Email confirmado",
-                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'mensaje' => "Su cuenta se ha verificado correctamente<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
                 'url' => base_url('Log_in'),
             );
         } else {
             $data = array(
-                'titulo' => "Email ya confirmado o no valido",
-                'mensaje' => "Se ha registrado correctamente<br>Acceda a su correo electrónico para verificar su cuenta<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
+                'titulo' => "Error confirmación",
+                'mensaje' => "Su correo electrónico ya ha sido confirmado o no el enlace no es valido<br><br><a href=" . base_url('Log_in') . ">Pulse aquí si no es redireccionado en unos segundos</a>",
                 'url' => base_url('Log_in'),
             );
         }
