@@ -46,4 +46,16 @@ class Articles_model extends CI_Model
         $this->db->query("UPDATE comments SET stars=$value WHERE id=$id_comentario");
         return $this->db->affected_rows() == 1;
     }
+
+    public function getArticle($id)
+    {
+        $article = $this->db->query("SELECT name,description,image,store FROM articles WHERE id=$id");
+        return $article->result_array()[0];
+    }
+
+    public function getComments($id)
+    {
+        $comment = $this->db->query("SELECT comment,created,star FROM comments WHERE id_article=$id");
+        return $comment->result_array()[0];
+    }
 }

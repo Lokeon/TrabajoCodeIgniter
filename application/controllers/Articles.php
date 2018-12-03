@@ -20,6 +20,10 @@ class Articles extends CI_Controller
 
     public function article($id)
     {
-        echo $id;
+        $data = array_merge($this->articles_model->getArticle($id),$this->articles_model->getComments($id));
+        print('<pre>');
+        print_r($data);
+        print('</pre>');
+        //generate_view($this,"Articulo","articles/article_view",$data);
     }
 }
