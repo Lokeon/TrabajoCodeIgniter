@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 function generate_view($self, $title, $body, $dbody = null)
 {
     $data['title'] = $title;

@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 $config = array(
     'base_url' => base_url('welcome/index'),
     'total_rows' => 100,

@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div id="hero">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">

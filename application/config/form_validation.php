@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 $config = array(
     'Sign_up/verify_sign_up' => array(
         array(

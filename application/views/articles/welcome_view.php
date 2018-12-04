@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 for ($i = 0; $i < count($results); ++$i) {
     if ($i % 4 == 0) {
         if ($i > 0) {

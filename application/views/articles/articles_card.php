@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="card">
     <img class="card-img-top" src="{image}" alt="Imagen">
     <div class="card-body">
