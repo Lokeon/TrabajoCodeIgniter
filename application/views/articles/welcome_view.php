@@ -11,6 +11,7 @@ for ($i = 0; $i < count($results); ++$i) {
         'nombreproducto' => $results[$i]->name,
         'media' => 0,
         'url' => base_url('article/' . $results[$i]->id),
+        'index' => $i,
     );
     print($this->parser->parse('articles/articles_card', $data, true));
 }
