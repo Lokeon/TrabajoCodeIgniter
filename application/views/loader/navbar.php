@@ -1,8 +1,8 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div id="hero">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
-        <a href="<?=base_url() ?>" class="navbar-brand text-primary" id="logo">Reviews</a>
+        <a href="<?=base_url() ?>" class="navbar-brand" id="logo">Reviews</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,10 +21,10 @@
                 </li>
                 <?php else: ?>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?=base_url('welcome/signup') ?>">Regístrate</a>
+                    <a class="nav-link" href="<?=base_url('welcome/signup') ?>">Regístrate</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="<?=base_url('welcome/login') ?>">Iniciar sesión</a>
+                    <a class="nav-link" href="<?=base_url('welcome/login') ?>">Iniciar sesión</a>
                 </li>
                 <?php endif; ?>
             </ul>

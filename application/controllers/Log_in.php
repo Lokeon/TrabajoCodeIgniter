@@ -43,19 +43,29 @@ class Log_in extends CI_Controller
                 generate_view($this, 'Log in', 'log_in_view');
             } else {
                 $this->session->set_userdata(
-                    array(
-                        'user' => set_value('username'),
+                    [
+                        'user'   => set_value('username'),
                         'logged' => true,
-                    )
+                    ]
                 );
-                redirect('/');
+                $user = set_value('username');
+                if (valid_email($user) === true) {
+                    $admin = $this->log_in_model->is_admin($user, "email");
+                } else {
+                    $admin = $this->log_in_model->is_admin($user);
+                }
+                if (true === $admin) {
+                    redirect('/Admin');
+                } else {
+                    redirect('/');
+                }
             }
         }
     }
 
     public function logout()
     {
-        $this->session->unset_userdata(array('user', 'logged'));
+        $this->session->unset_userdata(['user', 'logged']);
         $this->session->sess_destroy();
         redirect('/');
     }
