@@ -19,7 +19,6 @@ class Admin extends CI_Controller
     {
         switch ($option) {
             case 'insertar':
-<<<<<<< HEAD
                 if ($this->form_validation->run('admin/articulos/insertar') === false) {
                     $data['function'] = function () {
                         $select['brand'] = $this->brands_model->get_brands();
@@ -38,13 +37,11 @@ class Admin extends CI_Controller
                     $this->articles_model->insertArticle($formdata);
                     redirect('admin/articulos');
                 }
-=======
                 $data['function'] = function () {
                     $select['brand'] = $this->brands_model->get_brands();
                     $select['tags'] = $this->category_model->get_categories();
                     print($this->parser->parse('admin/articulos/insertar_view', $select, true));
                 };
->>>>>>> 4e0fb8e64cf2a92aed1eede5170eef8c085c5614
                 break;
             case 'eliminar':
                 $data['function'] = function () {
@@ -98,6 +95,7 @@ class Admin extends CI_Controller
 
     public function comentariosArticulo()
     {
+        header('Content-Type: application/json');
         $id = $this->input->post('id');
         json_encode($this->comments_model->getComment($id));
 
