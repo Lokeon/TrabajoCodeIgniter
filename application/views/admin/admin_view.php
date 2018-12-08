@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="card-body">
-        <?php print(innercard($this, $options)); ?>
+        <?php $function(); ?>
         </div>
     </div>
 </div>

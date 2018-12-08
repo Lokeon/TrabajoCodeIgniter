@@ -9,25 +9,37 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $data['options'] = $this->config->item($this->uri->segment(2));
+        $data['function'] = function () {
+            print(innercard($this, $this->config->item($this->uri->segment(2))));
+        };
         generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 
-    public function articulos($alfo)
+    public function articulos($option)
     {
-        $data['options'] = $this->config->item('articulos');
+        switch ($option) {
+            case 'insertar':
+                $data['function'] = function () {
+                    print(innercard($this, $this->config->item($this->uri->segment(2))));
+                };
+                break;
+            case 'eliminar':
+                # code...
+                break;
+            case 'modificar':
+                # code...
+                break;
+        }
         generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 
     public function comentarios($algo)
     {
-        $data['options'] = $this->config->item('comentarios');
-        generate_view($this, "Dashboard", "admin/admin_view", $data);
+
     }
 
     public function usuarios($algo)
     {
-        $data['options'] = $this->config->item('usuarios');
-        generate_view($this, "Dashboard", "admin/admin_view", $data);
+
     }
 }
