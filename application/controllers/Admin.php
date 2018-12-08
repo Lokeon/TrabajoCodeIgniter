@@ -98,6 +98,13 @@ class Admin extends CI_Controller
         header('Content-Type: application/json');
         $id = $this->input->post('id');
         print(json_encode($this->comments_model->getComment($id)));
+    }
 
+    public function elminarComentariosArticulos()
+    {
+        header('Content-Type: application/json');
+        $id = $this->input->post('id');
+        $this->comments_model->deleteComment($id);
+        http_response_code(200);
     }
 }

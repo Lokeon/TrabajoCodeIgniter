@@ -9,8 +9,12 @@ class Comments_model extends CI_Model
 
     public function getComment($id)
     {
-        $comment = $this->db->query("SELECT * FROM comments WHERE id_article = $id ");
+        $comment = $this->db->query("SELECT * FROM comments WHERE id_article=$id");
         return $comment->result_array();
     }
 
+    public function deleteComment($id)
+    {
+        $this->db->delete('comments', ['id' => $id]);
+    }
 }

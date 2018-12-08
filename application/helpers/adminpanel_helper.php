@@ -21,7 +21,7 @@ function innercard($self, $data, $limit = 3, $open = "<div class='row'>", $close
     return $cardstring;
 }
 
-function generate_select($name, $data)
+function generate_select($name, $data, $default = false)
 {
     $open = "<div class='form-group'>
     <label for='$name'>$name</label>
@@ -30,6 +30,9 @@ function generate_select($name, $data)
   </div>";
     $string = "";
     $string .= $open;
+    if ($default) {
+        $string .= "<option disabled selected value>  Seleccione una opción  </option>";
+    }
     foreach ($data as $value) {
         $string .= "<option value='{$value['id']}'>{$value['name']}</option>";
     }

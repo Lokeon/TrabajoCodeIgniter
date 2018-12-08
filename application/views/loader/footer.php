@@ -43,8 +43,16 @@ for (let index = 0; index < scores.length; index++) {
                 comments.push(data[i].comment);
             }
             $list = $('#response');
-            $.each(comments,function(i, obj) {
-                $list.append("<li class='list-group-item'>"+obj+"<a class='btn-remove'><i class='fas fa-trash'></i></a></li>");
+            $.each(data,function(i, obj) {
+                //$list.append("<li class='list-group-item'>"+obj+"<a class='btn-remove'><i class='fas fa-trash'></i></a></li>");
+                $list.append(`
+                <div id="`+obj.id+`" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">`+obj.comment+`</h5>
+                        <small class="text-muted">`+obj.created+`  <a class='btn-remove'><i class='fas fa-trash'></i></a></small>
+                    </div>
+                </div>
+                `);
             })
             console.log(data);
         }).fail(function (data) {
@@ -53,8 +61,15 @@ for (let index = 0; index < scores.length; index++) {
             console.log('complete');
         });
     });
-    $('#response').on('click', '.btn-remove', function(){
-        $(this).closest('li').fadeOut('slow', function(){
+    $('#response').on('click', '.btn-remove', function() {
+        $.ajax({
+            type: "POST",
+            url: '<?=base_url("admin/elminarComentariosArticulos"); ?>',
+            dataType:'json',
+            data: { id: $(this).closest('div').parent().attr('id')}
+        });
+        //console.log($(this).closest('div').parent().attr('id'));
+        $(this).closest('div').parent().fadeOut('slow', function(){
         $(this).remove();
     });
 });
