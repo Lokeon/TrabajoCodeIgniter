@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class Articles_model extends CI_Model
 {
     public function __construct()
@@ -16,7 +16,7 @@ class Articles_model extends CI_Model
     {
         $this->db->limit($limit);
         $this->db->where('id', $id);
-        $query = "SELECT * FROM articles WHERE id BETWEEN $id AND $limit";
+        $query  = "SELECT * FROM articles WHERE id BETWEEN $id AND $limit";
         $result = $this->db->query($query);
         if ($result->num_rows() > 0) {
             foreach ($result->result() as $row) {
@@ -27,13 +27,26 @@ class Articles_model extends CI_Model
         return false;
     }
 
+    public function getArticlesArray($id, $limit)
+    {
+        $query  = "SELECT id,name,image FROM articles WHERE id BETWEEN $id AND $limit";
+        $result = $this->db->query($query);
+        $data   = $result->result_array();
+        for ($i = 0; $i < count($data); ++$i) {
+            $data[$i]['index']   = $i;
+            $data[$i]['url']     = base_url('article/' . $data[$i]['id']);
+            $data[$i]['average'] = $this->getStar($data[$i]['id']);
+        }
+        return $data;
+    }
+
     public function getStar($id_article)
     {
         $this->db->select('ROUND(AVG(stars),1) as meanStars');
         $this->db->from('comments');
         $this->db->where('id_article', $id_article);
         $mean = $this->db->get()->result_array()[0]['meanStars'];
-        return ($mean == '') ? 0 : $mean;
+        return ('' == $mean) ? 0 : $mean;
     }
 
     public function getStarUser($id_article, $id_user)
@@ -57,6 +70,6 @@ class Articles_model extends CI_Model
     public function getComments($id)
     {
         $comment = $this->db->query("SELECT comment,created,stars FROM comments WHERE id_article=$id");
-        return array('comments' => $comment->result_array());
+        return ['comments' => $comment->result_array()];
     }
 }

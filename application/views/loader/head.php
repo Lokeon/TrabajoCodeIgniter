@@ -11,4 +11,4 @@
   <title><?php print $title ?></title>
 </head>
 <body class="bg-light">
-<div id="wrapper">
+<div id="wrapper" class="toggled">

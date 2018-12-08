@@ -19,10 +19,11 @@ class Welcome extends CI_Controller
             $inicio = 1;
             $fin    = $this->pagination->per_page;
         }
-        if ($data["results"] = $this->articles_model->getArticles($inicio, $fin)) {
-            $data["links"]  = $this->pagination->create_links();
+        if ($data["results"] = $this->articles_model->getArticlesArray($inicio, $fin)) {
             $data["logged"] = $this->session->has_userdata('logged') == true;
-            generate_view($this, 'Review', 'articles/welcome_view', $data);
+            $data["links"]  = $this->pagination->create_links();
+            $foot["scores"] = implode(',', array_column($data["results"], 'average'));
+            generate_view($this, 'Review', 'articles/welcome_view', $data, $foot);
         } else {
             redirect('/');
         }

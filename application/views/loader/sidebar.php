@@ -12,7 +12,7 @@
 <?php if ($this->session->userdata('logged')): ?>
 <?php if ($this->session->userdata('admin')): ?>
         <li>
-            <a href="<?=base_url('Admin') ?>"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+            <a href="<?=base_url('admin/articulos') ?>"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
         </li>
         <?php else: ?>
         <li>

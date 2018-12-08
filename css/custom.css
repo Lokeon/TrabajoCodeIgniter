@@ -1,5 +1,5 @@
 @import "login.css";
-@import "raty.css";
+@import url("//netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.css");
 
 .star-rating {
     line-height:32px;
@@ -140,4 +140,13 @@
 
 #wrapper.toggled #show-sidebar {
     left: -40px;
+}
+
+.css-on, .css-h, .css-off {
+    color: #F39C12;
+}
+
+.stars {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
 }

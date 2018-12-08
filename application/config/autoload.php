@@ -39,7 +39,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
  */
-$autoload['packages'] = array();
+$autoload['packages'] = [];
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |    $autoload['libraries'] = array('user_agent' => 'ua');
  */
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'email', 'parser', 'pagination');
+$autoload['libraries'] = ['database', 'session', 'form_validation', 'email', 'parser', 'pagination'];
 
 /*
 | -------------------------------------------------------------------
@@ -79,7 +79,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation', 'email'
 |    $autoload['drivers'] = array('cache' => 'cch');
 |
  */
-$autoload['drivers'] = array();
+$autoload['drivers'] = [];
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |    $autoload['helper'] = array('url', 'file');
  */
-$autoload['helper'] = array('url', 'form', 'viewloader', 'email');
+$autoload['helper'] = ['url', 'form', 'viewloader', 'email', 'adminpanel'];
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'form', 'viewloader', 'email');
 | config files.  Otherwise, leave it blank.
 |
  */
-$autoload['config'] = array('smtp_email');
+$autoload['config'] = ['smtp_email', 'admin_panel'];
 
 /*
 | -------------------------------------------------------------------
@@ -117,7 +117,7 @@ $autoload['config'] = array('smtp_email');
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
  */
-$autoload['language'] = array();
+$autoload['language'] = [];
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |    $autoload['model'] = array('first_model' => 'first');
  */
-$autoload['model'] = array('sign_up_model', 'log_in_model', 'articles_model');
+$autoload['model'] = ['sign_up_model', 'log_in_model', 'articles_model'];

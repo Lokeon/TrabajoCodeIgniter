@@ -25,6 +25,7 @@ class Articles extends CI_Controller
         print('<pre>');
         print_r($data);
         print('</pre>');
+        print('<i class="fas fa-star"></i>');
         //generate_view($this,"Articulo","articles/article_view",$data);
     }
 }
