@@ -39,13 +39,37 @@ class Admin extends CI_Controller
         generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 
-    public function comentarios($algo)
+    public function comentarios($option)
     {
-
+        switch ($option) {
+           case 'eliminar':
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/comentarios/delete_view', [], true));
+                };
+                break;
+            case 'modificar':
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/comentarios/modify_view', [], true));
+                };
+                break;
+        }
+        generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 
-    public function usuarios($algo)
+    public function usuarios($option)
     {
-
+        switch ($option) {
+            case 'eliminar':
+                 $data['function'] = function () {
+                     print($this->parser->parse('admin/usuarios/delete_view', [], true));
+                 };
+                 break;
+             case 'modificar':
+                 $data['function'] = function () {
+                     print($this->parser->parse('admin/usuarios/modify_view', [], true));
+                 };
+                 break;
+         }
+         generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 }
