@@ -19,11 +19,24 @@ class Admin extends CI_Controller
     {
         switch ($option) {
             case 'insertar':
-                $data['function'] = function () {
-                    $select['brand'] = $this->brands_model->get_brands();
-                    $select['tags']  = $this->category_model->get_categories();
-                    print($this->parser->parse('admin/articulos/insertar_view', $select, true));
-                };
+                if ($this->form_validation->run('admin/articulos/insertar') === false) {
+                    $data['function'] = function () {
+                        $select['brand'] = $this->brands_model->get_brands();
+                        $select['tags']  = $this->category_model->get_categories();
+                        print($this->parser->parse('admin/articulos/insertar_view', $select, true));
+                    };
+                } else {
+                    $formdata = [
+                        'id_brand'    => $this->input->post('Marca'),
+                        'id_category' => $this->input->post('Categoria'),
+                        'name'        => $this->input->post('name'),
+                        'description' => $this->input->post('description'),
+                        'image'       => $this->input->post('image'),
+                        'store'       => $this->input->post('store'),
+                    ];
+                    $this->articles_model->insertArticle($formdata);
+                    redirect('admin/articulos');
+                }
                 break;
             case 'eliminar':
                 $data['function'] = function () {
