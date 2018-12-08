@@ -15,10 +15,10 @@
         });
     });
     </script>
-<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == ""): ?>
-<script src="<?=base_url('js/raty.js') ?>"></script>
+<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "") : ?>
+<script src="<?= base_url('js/raty.js') ?>"></script>
 <script>
-var scores = [<?=$scores ?>];
+var scores = [<?= $scores ?>];
 for (let index = 0; index < scores.length; index++) {
     const score = scores[index];
     $('#star-'+index).raty({
@@ -26,6 +26,19 @@ for (let index = 0; index < scores.length; index++) {
         score    : scores[index]
     });
 }
+</script>
+<?php elseif ($this->uri->segment(3) == "eliminar") : ?>
+<script> 
+    $(document).on('change','select',function() {
+        $(this).val();
+        $.ajax({ type:"POST",
+        url: <?= base_url('Admin/comentariosArticulo'); ?>, 
+        dataType:'json',
+        data:{id:$(this).val()},
+        success:function(obj, textstatus) {
+            console.log(obj.result);
+        }});
+    });                                    
 </script>
 <?php endif; ?>
 </body>

@@ -67,6 +67,12 @@ class Articles_model extends CI_Model
         return $article->result_array()[0];
     }
 
+    public function get_article()
+    {
+        $article = $this->db->query("SELECT id,name FROM articles");
+        return $article->result_array();
+    }
+
     public function getComments($id)
     {
         $comment = $this->db->query("SELECT comment,created,stars FROM comments WHERE id_article=$id");

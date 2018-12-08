@@ -21,7 +21,7 @@ class Admin extends CI_Controller
             case 'insertar':
                 $data['function'] = function () {
                     $select['brand'] = $this->brands_model->get_brands();
-                    $select['tags']  = $this->category_model->get_categories();
+                    $select['tags'] = $this->category_model->get_categories();
                     print($this->parser->parse('admin/articulos/insertar_view', $select, true));
                 };
                 break;
@@ -42,9 +42,11 @@ class Admin extends CI_Controller
     public function comentarios($option)
     {
         switch ($option) {
-           case 'eliminar':
+
+            case 'eliminar':
                 $data['function'] = function () {
-                    print($this->parser->parse('admin/comentarios/delete_view', [], true));
+                    $select['articles'] = $this->articles_model->get_article();
+                    print($this->parser->parse('admin/comentarios/delete_view', $select, true));
                 };
                 break;
             case 'modificar':
@@ -60,16 +62,23 @@ class Admin extends CI_Controller
     {
         switch ($option) {
             case 'eliminar':
-                 $data['function'] = function () {
-                     print($this->parser->parse('admin/usuarios/delete_view', [], true));
-                 };
-                 break;
-             case 'modificar':
-                 $data['function'] = function () {
-                     print($this->parser->parse('admin/usuarios/modify_view', [], true));
-                 };
-                 break;
-         }
-         generate_view($this, "Dashboard", "admin/admin_view", $data);
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/usuarios/delete_view', [], true));
+                };
+                break;
+            case 'modificar':
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/usuarios/modify_view', [], true));
+                };
+                break;
+        }
+        generate_view($this, "Dashboard", "admin/admin_view", $data);
+    }
+
+    public function comentariosArticulo()
+    {
+        $id = $this->input->post('id');
+        json_encode($this->comments_model->getComment($id));
+
     }
 }

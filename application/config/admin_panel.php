@@ -1,40 +1,41 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 $config = [
-    'articulos'   => [
+    'articulos' => [
         [
-            'title'   => 'Insertar',
+            'title' => 'Insertar',
             'content' => '',
-            'url'     => 'articulos/insertar',
+            'url' => 'articulos/insertar',
         ],
         [
-            'title'   => 'Eliminar',
+            'title' => 'Eliminar',
             'content' => '',
-            'url'     => 'articulos/eliminar',
+            'url' => 'articulos/eliminar',
         ],
         [
-            'title'   => 'Modificar',
+            'title' => 'Modificar',
             'content' => '',
-            'url'     => 'articulos/modificar',
+            'url' => 'articulos/modificar',
         ],
     ],
     'comentarios' => [
         [
-            'title'   => 'Eliminar',
+            'title' => 'Eliminar',
             'content' => '',
+            'url' => 'comentarios/eliminar',
         ],
         [
-            'title'   => 'Modificar',
+            'title' => 'Modificar',
             'content' => '',
         ],
     ],
-    'usuarios'    => [
+    'usuarios' => [
         [
-            'title'   => 'Eliminar',
+            'title' => 'Eliminar',
             'content' => '',
         ],
         [
-            'title'   => 'Modificar',
+            'title' => 'Modificar',
             'content' => '',
         ],
     ],

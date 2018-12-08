@@ -138,4 +138,5 @@ $autoload['model'] = [
     'articles_model',
     'brands_model',
     'category_model',
+    'comments_model',
 ];
