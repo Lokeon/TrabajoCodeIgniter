@@ -97,7 +97,7 @@ class Admin extends CI_Controller
     {
         header('Content-Type: application/json');
         $id = $this->input->post('id');
-        json_encode($this->comments_model->getComment($id));
+        print(json_encode($this->comments_model->getComment($id)));
 
     }
 }

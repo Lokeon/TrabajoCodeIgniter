@@ -15,10 +15,10 @@
         });
     });
     </script>
-<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "") : ?>
-<script src="<?= base_url('js/raty.js') ?>"></script>
+<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == ""): ?>
+<script src="<?=base_url('js/raty.js') ?>"></script>
 <script>
-var scores = [<?= $scores ?>];
+var scores = [<?=$scores ?>];
 for (let index = 0; index < scores.length; index++) {
     const score = scores[index];
     $('#star-'+index).raty({
@@ -27,19 +27,38 @@ for (let index = 0; index < scores.length; index++) {
     });
 }
 </script>
-<?php elseif ($this->uri->segment(3) == "eliminar") : ?>
-<script> 
+<?php elseif ($this->uri->segment(3) == "eliminar"): ?>
+<script>
     $(document).ready(function() {
-        $('#Articulos').on('change',function(){
-            $.ajax({ type:"POST",
-            url: '<?= base_url('admin/comentariosArticulo'); ?>', 
+    $('#Articulos').on('change',function(){
+        $('#response').html("");
+        $.ajax({
+            type:"POST",
+            url: '<?=base_url("admin/comentariosArticulo"); ?>',
             dataType:'json',
-            data:{id:$('#Articulos').val()},
-            success:function(obj, textstatus) {
-                console.log(obj.result);
-            }});
+            data: { id: $('#Articulos').val()}
+        }).done(function (data) {
+            let comments = [];
+            for(let i = 0; i < data.length ; i++ ) {
+                comments.push(data[i].comment);
+            }
+            $list = $('#response');
+            $.each(comments,function(i, obj) {
+                $list.append("<li class='list-group-item'>"+obj+"<a class='btn-remove'><i class='fas fa-trash'></i></a></li>");
+            })
+            console.log(data);
+        }).fail(function (data) {
+            console.log("no funciona");
+        }).always(function() {
+            console.log('complete');
         });
-    });                                    
+    });
+    $('#response').on('click', '.btn-remove', function(){
+        $(this).closest('li').fadeOut('slow', function(){
+        $(this).remove();
+    });
+});
+});
 </script>
 <?php endif; ?>
 </body>

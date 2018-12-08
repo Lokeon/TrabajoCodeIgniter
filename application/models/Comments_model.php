@@ -7,13 +7,10 @@ class Comments_model extends CI_Model
         parent::__construct();
     }
 
-
     public function getComment($id)
     {
-        $comment = $this->db->query("SELECT name FROM comments WHERE id_article = $id ");
+        $comment = $this->db->query("SELECT * FROM comments WHERE id_article = $id ");
         return $comment->result_array();
     }
-
-
 
 }
