@@ -20,14 +20,20 @@ class Admin extends CI_Controller
         switch ($option) {
             case 'insertar':
                 $data['function'] = function () {
-                    print(innercard($this, $this->config->item($this->uri->segment(2))));
+                    $select['brand'] = $this->brands_model->get_brands();
+                    $select['tags']  = $this->category_model->get_categories();
+                    print($this->parser->parse('admin/articulos/insertar_view', $select, true));
                 };
                 break;
             case 'eliminar':
-                # code...
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/articulos/insertar_view', [], true));
+                };
                 break;
             case 'modificar':
-                # code...
+                $data['function'] = function () {
+                    print($this->parser->parse('admin/articulos/insertar_view', [], true));
+                };
                 break;
         }
         generate_view($this, "Dashboard", "admin/admin_view", $data);

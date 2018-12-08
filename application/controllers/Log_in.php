@@ -56,7 +56,7 @@ class Log_in extends CI_Controller
 
                 $this->session->set_userdata($sess);
                 if (true === $sess['admin']) {
-                    redirect('/Admin');
+                    redirect('/admin/articulos');
                 } else {
                     redirect('/');
                 }

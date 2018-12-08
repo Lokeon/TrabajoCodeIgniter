@@ -20,3 +20,19 @@ function innercard($self, $data, $limit = 3, $open = "<div class='row'>", $close
     $cardstring .= $close;
     return $cardstring;
 }
+
+function generate_select($name, $data)
+{
+    $open = "<div class='form-group'>
+    <label for='$name'>$name</label>
+    <select class='form-control' id='$name' name='$name'>";
+    $close = "</select>
+  </div>";
+    $string = "";
+    $string .= $open;
+    foreach ($data as $value) {
+        $string .= "<option value='{$value['id']}'>{$value['name']}</option>";
+    }
+    $string .= $close;
+    return $string;
+}
