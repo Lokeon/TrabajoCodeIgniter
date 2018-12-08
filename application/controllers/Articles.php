@@ -22,10 +22,12 @@ class Articles extends CI_Controller
     public function article($id)
     {
         $data = array_merge(['average' => $this->articles_model->getStar($id)], $this->articles_model->getArticle($id), $this->articles_model->getComments($id));
-        print('<pre>');
-        print_r($data);
-        print('</pre>');
-        print('<i class="fas fa-star"></i>');
-        //generate_view($this,"Articulo","articles/article_view",$data);
+        //print('<pre>');
+        //print_r($data);
+        //print('</pre>');
+        //print('<i class="fas fa-star"></i>');
+        //generate_view($this, "Articulo", "articles/article_view", $data);
+        $foot["scores"] = $this->articles_model->getStar($id);
+        generate_view($this, "Articulo", "articles/article_view", $data, $foot);
     }
 }

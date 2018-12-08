@@ -15,7 +15,7 @@
         });
     });
     </script>
-<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == ""): ?>
+<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article"): ?>
 <script src="<?=base_url('js/raty.js') ?>"></script>
 <script>
 var scores = [<?=$scores ?>];
