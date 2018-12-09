@@ -27,7 +27,7 @@ for (let index = 0; index < scores.length; index++) {
     });
 }
 </script>
-<?php elseif ($this->uri->segment(3) == "eliminar"): ?>
+<?php elseif ($this->uri->uri_string() === "admin/comentarios/eliminar"): ?>
 <script>
 $(document).ready(function() {
     $('#Articulos').on('change',function(){
@@ -68,6 +68,8 @@ $(document).ready(function() {
     });
 });
 </script>
+<?php elseif ($this->uri->uri_string() === "admin/articulos/eliminar"): ?>
+<?php print($this->parser->parse('scripts/delete_article_js', [], true)); ?>
 <?php endif; ?>
 </body>
 </html>

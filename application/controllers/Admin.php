@@ -45,7 +45,7 @@ class Admin extends CI_Controller
                 break;
             case 'eliminar':
                 $data['function'] = function () {
-                    print($this->parser->parse('admin/articulos/insertar_view', [], true));
+                    print($this->parser->parse('admin/articulos/eliminar_view', [], true));
                 };
                 break;
             case 'modificar':
@@ -124,6 +124,20 @@ class Admin extends CI_Controller
         header('Content-Type: application/json');
         $id = $this->input->post('id');
         $this->comments_model->deleteComment($id);
+        http_response_code(200);
+    }
+
+    public function listArticles()
+    {
+        header('Content-Type: application/json');
+        print(json_encode($this->articles_model->get_article()));
+    }
+
+    public function removeArticle()
+    {
+        header('Content-Type: application/json');
+        $id = $this->input->post('id');
+        print(json_encode($this->articles_model->removeArticle($id)));
         http_response_code(200);
     }
 }

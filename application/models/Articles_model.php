@@ -73,4 +73,11 @@ class Articles_model extends CI_Model
     {
         $this->db->where('id',$id)->update('articles',$data);
     }
+
+    public function removeArticle($id)
+    {
+        $this->db->delete('comments', ['id_article' => $id]);
+        $this->db->delete('articles', ['id' => $id]);
+        return $this->db->affected_rows();
+    }
 }
