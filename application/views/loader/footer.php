@@ -15,61 +15,13 @@ $(document).ready(function () {
     });
 });
 </script>
-<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article"): ?>
-<script src="<?=base_url('js/raty.js') ?>"></script>
-<script>
-var scores = [<?=$scores ?>];
-for (let index = 0; index < scores.length; index++) {
-    const score = scores[index];
-    $('#star-'+index).raty({
-        readOnly : true,
-        score    : scores[index]
-    });
-}
-</script>
-<?php elseif ($this->uri->uri_string() === "admin/comentarios/eliminar"): ?>
-<script>
-$(document).ready(function() {
-    $('#Articulos').on('change',function(){
-        $('#response').html("");
-        $.ajax({
-            type:"POST",
-            url: '<?=base_url("admin/comentariosArticulo"); ?>',
-            dataType:'json',
-            data: { id: $('#Articulos').val()}
-        }).done(function (data) {
-            $list = $('#response');
-            $.each(data,function(i, obj) {
-                $list.append(`
-                <div id="`+obj.id+`" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">`+obj.comment+`</h5>
-                        <small class="text-muted">`+obj.created+`  <a class='btn-remove'><i class='fas fa-trash'></i></a></small>
-                    </div>
-                </div>
-                `);
-            });
-        }).fail(function (data) {
-            console.log("no funciona");
-        }).always(function() {
-            console.log('complete');
-        });
-    });
-    $('#response').on('click', '.btn-remove', function() {
-        $.ajax({
-            type: "POST",
-            url: '<?=base_url("admin/elminarComentariosArticulos"); ?>',
-            dataType:'json',
-            data: { id: $(this).closest('div').parent().attr('id')}
-        });
-        $(this).closest('div').parent().fadeOut('slow', function(){
-            $(this).remove();
-        });
-    });
-});
-</script>
-<?php elseif ($this->uri->uri_string() === "admin/articulos/eliminar"): ?>
-<?php print($this->parser->parse('scripts/delete_article_js', [], true)); ?>
-<?php endif; ?>
+<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article") {
+        print($this->parser->parse('scripts/stars_js', ['scores' => $scores], true));
+    } elseif ($this->uri->uri_string() === "admin/comentarios/eliminar") {
+        print($this->parser->parse('scripts/delete_comments', [], true));
+    } elseif ($this->uri->uri_string() === "admin/articulos/eliminar") {
+        print($this->parser->parse('scripts/delete_article_js', [], true));
+    }
+?>
 </body>
 </html>
