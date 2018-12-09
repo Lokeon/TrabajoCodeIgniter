@@ -13,13 +13,11 @@ class Welcome extends CI_Controller
     public function index()
     {
         if ($page = $this->uri->segment(3)) {
-            $fin    = $page * $this->pagination->per_page;
-            $inicio = $fin - $this->pagination->per_page + 1;
+            $offset = ($page - 1) * $this->pagination->per_page;
         } else {
-            $inicio = 1;
-            $fin    = $this->pagination->per_page;
+            $offset = 0;
         }
-        if ($data["results"] = $this->articles_model->getArticlesArray($inicio, $fin)) {
+        if ($data["results"] = $this->articles_model->getArticlesArray($offset, $this->pagination->per_page)) {
             $data["logged"] = $this->session->has_userdata('logged') == true;
             $data["links"]  = $this->pagination->create_links();
             $foot["scores"] = implode(',', array_column($data["results"], 'average'));

@@ -9,14 +9,19 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $data['function'] = function () {
-            print(innercard($this, $this->config->item($this->uri->segment(2))));
-        };
-        generate_view($this, "Dashboard", "admin/admin_view", $data);
+        if ($this->session->userdata('logged') && $this->session->userdata('admin')) {
+            $data['function'] = function () {
+                print(innercard($this, $this->config->item($this->uri->segment(2))));
+            };
+            generate_view($this, "Dashboard", "admin/admin_view", $data);
+        } else {
+            redirect('/');
+        }
     }
 
     public function articulos($option)
     {
+        if ($this->session->userdata('logged') && $this->session->userdata('admin')) {
         switch ($option) {
             case 'insertar':
                 if ($this->form_validation->run('admin/articulos/insertar') === false) {
@@ -37,11 +42,6 @@ class Admin extends CI_Controller
                     $this->articles_model->insertArticle($formdata);
                     redirect('admin/articulos');
                 }
-                $data['function'] = function () {
-                    $select['brand'] = $this->brands_model->get_brands();
-                    $select['tags'] = $this->category_model->get_categories();
-                    print($this->parser->parse('admin/articulos/insertar_view', $select, true));
-                };
                 break;
             case 'eliminar':
                 $data['function'] = function () {
@@ -49,12 +49,31 @@ class Admin extends CI_Controller
                 };
                 break;
             case 'modificar':
-                $data['function'] = function () {
-                    print($this->parser->parse('admin/articulos/insertar_view', [], true));
-                };
+                if ($this->form_validation->run('admin/articulos/modificar') === false) {
+                    $data['function'] = function () {
+                        $select['brand'] = $this->brands_model->get_brands();
+                        $select['tags']  = $this->category_model->get_categories();
+                        $select['articles'] = $this->articles_model->get_article();
+                        print($this->parser->parse('admin/articulos/modificar_view', $select, true));
+                    };
+                } else {
+                    $formdata = array_filter([
+                        'id_brand'    => $this->input->post('Marca'),
+                        'id_category' => $this->input->post('Categoria'),
+                        'name'        => $this->input->post('name'),
+                        'description' => $this->input->post('description'),
+                        'image'       => $this->input->post('image'),
+                        'store'       => $this->input->post('store'),
+                    ]);
+                    $this->articles_model->updateArticle($this->input->post('Articulo'), $formdata);
+                    redirect('admin/articulos');
+                }
                 break;
         }
         generate_view($this, "Dashboard", "admin/admin_view", $data);
+    } else {
+        redirect('/');
+    }
     }
 
     public function comentarios($option)

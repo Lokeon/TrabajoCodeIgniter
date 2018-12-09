@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 $config = [
-    'Sign_up/verify_sign_up'   => [
+    'Sign_up/verify_sign_up'    => [
         [
             'field'  => 'username',
             'label'  => 'ombre de usuario',
@@ -41,7 +41,7 @@ $config = [
             ],
         ],
     ],
-    'Log_in/verify_log_in'     => [
+    'Log_in/verify_log_in'      => [
         [
             'field'  => 'username',
             'label'  => 'nombre de usuario',
@@ -61,7 +61,7 @@ $config = [
             ],
         ],
     ],
-    'admin/articulos/insertar' => [
+    'admin/articulos/insertar'  => [
         [
             'field'  => 'name',
             'label'  => 'nombre',
@@ -77,6 +77,18 @@ $config = [
             'errors' => [
                 'required' => 'Debe insertar una %s.',
             ],
+        ],
+    ],
+    'admin/articulos/modificar' => [
+        [
+            'field' => 'name',
+            'label' => 'nombre',
+            'rules' => 'trim',
+        ],
+        [
+            'field' => 'description',
+            'label' => 'descripción',
+            'rules' => 'trim',
         ],
     ],
 ];

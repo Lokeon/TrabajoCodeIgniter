@@ -6,15 +6,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function () {
-        $("#close-sidebar").click(function() {
-            $("#wrapper").removeClass("toggled");
-        });
-        $("#show-sidebar").click(function() {
-            $("#wrapper").addClass("toggled");
-        });
+$(document).ready(function () {
+    $("#close-sidebar").click(function() {
+        $("#wrapper").removeClass("toggled");
     });
-    </script>
+    $("#show-sidebar").click(function() {
+        $("#wrapper").addClass("toggled");
+    });
+});
+</script>
 <?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article"): ?>
 <script src="<?=base_url('js/raty.js') ?>"></script>
 <script>
@@ -29,7 +29,7 @@ for (let index = 0; index < scores.length; index++) {
 </script>
 <?php elseif ($this->uri->segment(3) == "eliminar"): ?>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
     $('#Articulos').on('change',function(){
         $('#response').html("");
         $.ajax({
@@ -38,13 +38,8 @@ for (let index = 0; index < scores.length; index++) {
             dataType:'json',
             data: { id: $('#Articulos').val()}
         }).done(function (data) {
-            let comments = [];
-            for(let i = 0; i < data.length ; i++ ) {
-                comments.push(data[i].comment);
-            }
             $list = $('#response');
             $.each(data,function(i, obj) {
-                //$list.append("<li class='list-group-item'>"+obj+"<a class='btn-remove'><i class='fas fa-trash'></i></a></li>");
                 $list.append(`
                 <div id="`+obj.id+`" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -53,8 +48,7 @@ for (let index = 0; index < scores.length; index++) {
                     </div>
                 </div>
                 `);
-            })
-            console.log(data);
+            });
         }).fail(function (data) {
             console.log("no funciona");
         }).always(function() {
@@ -68,11 +62,10 @@ for (let index = 0; index < scores.length; index++) {
             dataType:'json',
             data: { id: $(this).closest('div').parent().attr('id')}
         });
-        //console.log($(this).closest('div').parent().attr('id'));
         $(this).closest('div').parent().fadeOut('slow', function(){
-        $(this).remove();
+            $(this).remove();
+        });
     });
-});
 });
 </script>
 <?php endif; ?>
