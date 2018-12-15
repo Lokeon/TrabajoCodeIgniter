@@ -8,11 +8,13 @@ class Articles_model extends CI_Model
     }
 
     public function countArticles() //
+
     {
         return $this->db->count_all('articles');
     }
 
     public function getArticlesArray($offset, $limit) //
+
     {
         $query  = "SELECT id,name,image FROM articles LIMIT $offset, $limit";
         $result = $this->db->query($query);
@@ -26,6 +28,7 @@ class Articles_model extends CI_Model
     }
 
     public function getStar($id_article) //
+
     {
         $this->db->select('ROUND(AVG(stars),1) as meanStars');
         $this->db->from('comments');
@@ -35,12 +38,14 @@ class Articles_model extends CI_Model
     }
 
     public function getStarUser($id_article, $id_user) //!
+
     {
         $star = $this->db->query("SELECT stars FROM comments WHERE id_article='$id_article' AND id_user='$id_user'");
         return $star->result_array()[0]['stars'];
     }
 
     public function updateStar($id_comentario, $value) //!
+
     {
         $this->db->query("UPDATE comments SET stars=$value WHERE id=$id_comentario");
         return $this->db->affected_rows() == 1;
@@ -54,7 +59,7 @@ class Articles_model extends CI_Model
 
     public function get_article()
     {
-        $article = $this->db->query("SELECT id,name FROM articles");
+        $article = $this->db->query("SELECT id,name FROM articles ORDER BY name ASC");
         return $article->result_array();
     }
 
@@ -64,14 +69,16 @@ class Articles_model extends CI_Model
         return ['comments' => $comment->result_array()];
     }
 
-    public function insertArticle($data)//
+    public function insertArticle($data) //
+
     {
         $this->db->insert('articles', $data);
     }
 
-    public function updateArticle($id, $data)//
+    public function updateArticle($id, $data) //
+
     {
-        $this->db->where('id',$id)->update('articles',$data);
+        $this->db->where('id', $id)->update('articles', $data);
     }
 
     public function removeArticle($id)
