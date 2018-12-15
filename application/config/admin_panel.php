@@ -37,23 +37,25 @@ $config = [
             'content' => '',
             'url' => 'articulos/deletecategory',
         ],
-        
+
     ],
     'comentarios' => [
         [
-            'title' => 'Eliminar',
+            'title' => 'Eliminar Comentario',
             'content' => '',
             'url' => 'comentarios/eliminar',
         ],
     ],
     'usuarios' => [
         [
-            'title' => 'Eliminar',
+            'title' => 'Eliminar Usuario',
             'content' => '',
+            'url' => 'usuarios/eliminar' 
         ],
         [
-            'title' => 'Modificar',
+            'title' => 'Crear Administrador',
             'content' => '',
+            'url' => 'usuarios/modify' 
         ],
     ],
 ];

@@ -6,23 +6,11 @@ class Brands_model extends CI_Model
     {
         parent::_construct();
     }
-    public function get_articulos($id_brand)
-    {
-        $consulta = $this->db->query("select * FROM `articles` where `id_brand` = '$id_brand'");
-        return $consulta->result();
-    }
 
     public function get_brands()
     {
         $consulta = $this->db->query('SELECT * FROM brands ORDER BY name ASC');
         return $consulta->result_array();
-    }
-
-    public function modificar_brands()
-    {
-        $id = $this->input->POST('id');
-        $name = $this->input->POST('brand');
-        $this->db->query("UPDATE `brands` SET `name` = '$name' WHERE `brands`.`id` = $id");
     }
 
     public function insertBrands($data)
@@ -32,8 +20,8 @@ class Brands_model extends CI_Model
 
     public function removeBrand($id)
     {
-        $this->db->delete('brands', ['id' => $id]);
         $this->db->delete('articles', ['id_brand' => $id]);
+        $this->db->delete('brands', ['id' => $id]);
         return $this->db->affected_rows();
     }
 
