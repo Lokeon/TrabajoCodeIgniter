@@ -6,24 +6,11 @@ class Category_model extends CI_Model
     {
         parent::_construct();
     }
-    public function get_articulos($id_cat) //obtener articulos de una categoria determinada.
-
-    {
-        $consulta = $this->db->query("select * FROM `articles` where `id_category` = '$id_cat'");
-        return $consulta->result();
-    }
-
+   
     public function get_categories()
     {
         $consulta = $this->db->query('SELECT * FROM category ORDER BY name ASC');
         return $consulta->result_array();
-    }
-
-    public function modificar_categoria()
-    {
-        $id = $this->input->POST('id');
-        $name = $this->input->POST('category');
-        $this->db->query("UPDATE `category` SET `name` = '$name' WHERE `category`.`id` = $id");
     }
 
     public function insertCategory($data)
@@ -31,4 +18,10 @@ class Category_model extends CI_Model
         $this->db->insert("category",$data);
     }
 
+    public function removeCategory($id)
+    {
+        $this->db->query("UPDATE articles SET id_category = 9 WHERE id_category = $id");
+        $this->db->delete('category', ['id' => $id]);
+        return $this->db->affected_rows();
+    }
 }

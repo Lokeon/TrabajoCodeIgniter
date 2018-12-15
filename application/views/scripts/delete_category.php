@@ -17,17 +17,17 @@ $(document).ready(function() {
             </div>
             `);
         });
-        //console.log(data);
+        console.log(data);
     });
     $('#response').on('click', '.btn-remove', function() {
-        if(confirm("¿Esta seguro de eliminar la marca?")) {
+        if(confirm("¿Esta seguro de eliminar la categoria?")) {
             $.ajax({
                 type: "POST",
                 url: '<?=base_url("admin/removeCategory"); ?>',
                 dataType:'json',
                 data: { id: $(this).closest('div').parent().attr('id')}
             }).done(function(data) {
-                //console.log(data);
+        console.log(data);
             });
             $(this).closest('div').parent().fadeOut('slow', function(){
                 $(this).remove();

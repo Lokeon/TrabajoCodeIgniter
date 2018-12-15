@@ -123,6 +123,7 @@ class Admin extends CI_Controller
                         print($this->parser->parse('admin/comentarios/delete_view', $select, true));
                     };
                     break;
+
             }
             generate_view($this, "Dashboard", "admin/admin_view", $data);
 
@@ -133,19 +134,21 @@ class Admin extends CI_Controller
 
     public function usuarios($option)
     {
-        switch ($option) {
-            case 'eliminar':
-                $data['function'] = function () {
-                    print($this->parser->parse('admin/usuarios/delete_view', [], true));
-                };
-                break;
-            case 'modificar':
-                $data['function'] = function () {
-                    print($this->parser->parse('admin/usuarios/modify_view', [], true));
-                };
-                break;
+        if ($this->session->userdata('logged') && $this->session->userdata('admin')) {
+            switch ($option) {
+                case 'eliminar':
+                    $data['function'] = function () {
+                        print($this->parser->parse('admin/usuarios/delete_view', [], true));
+                    };
+                    break;
+                case 'modify':
+                    $data['function'] = function () {
+                        print($this->parser->parse('admin/usuarios/modify_view', [], true));
+                    };
+                    break;
+            }
+            generate_view($this, "Dashboard", "admin/admin_view", $data);
         }
-        generate_view($this, "Dashboard", "admin/admin_view", $data);
     }
 
     public function comentariosArticulo()
@@ -204,5 +207,35 @@ class Admin extends CI_Controller
         print(json_encode($this->category_model->removeCategory($id)));
         http_response_code(200);
     }
+
+    public function listUsers()
+    {
+        header('Content-Type: application/json');
+        print(json_encode($this->user_model->get_users()));
+    }
+
+    public function removeUser()
+    {
+        header('Content-Type: application/json');
+        $id = $this->input->post('id');
+        print(json_encode($this->user_model->removeUser($id)));
+        http_response_code(200);
+    }
+
+    public function listUsers1()
+    {
+        header('Content-Type: application/json');
+        print(json_encode($this->user_model->getUsers()));
+    }
+
+    public function modifyUser()
+    {
+        header('Content-Type: application/json');
+        $id = $this->input->post('id');
+        print(json_encode($this->user_model->modifyUser($id)));
+        http_response_code(200);
+    }
+
+
 
 }

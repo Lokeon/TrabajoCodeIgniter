@@ -25,6 +25,10 @@ $(document).ready(function () {
     print($this->parser->parse('scripts/delete_brand', [], true));
 } elseif ($this->uri->uri_string() === "admin/articulos/deletecategory") {
     print($this->parser->parse('scripts/delete_category', [], true));
+} elseif ($this->uri->uri_string() === "admin/usuarios/eliminar") {
+    print($this->parser->parse('scripts/delete_user', [], true));
+} elseif ($this->uri->uri_string() === "admin/usuarios/modify") {
+    print($this->parser->parse('scripts/modify_user', [], true));
 }
 
 ?>

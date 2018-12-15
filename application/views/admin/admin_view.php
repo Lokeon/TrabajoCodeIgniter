@@ -14,11 +14,6 @@
                 <li class="nav-item">
                     <a class="nav-link
         <?php is_active($this, 'usuarios') ?>" href="<?=base_url('admin/usuarios'); ?>">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link
-        <?php is_active($this, 'Admin') ?>" href="#">Link</a>
-                </li>
             </ul>
         </div>
         <div class="card-body">
