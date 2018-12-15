@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="row text-center align-items-center">
     <div class="col">
         <div class="card card-signin my-4">
