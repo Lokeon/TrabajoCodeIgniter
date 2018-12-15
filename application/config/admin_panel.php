@@ -17,16 +17,33 @@ $config = [
             'content' => '',
             'url' => 'articulos/modificar',
         ],
+        [
+            'title' => 'Insertar Marca',
+            'content' => '',
+            'url' => 'articulos/insertbrand',
+        ],
+        [
+            'title' => 'Eliminar Marca',
+            'content' => '',
+            'url' => 'articulos/deletebrand',
+        ],
+        [
+            'title' => 'Insertar Categoria',
+            'content' => '',
+            'url' => 'articulos/insertcategory',
+        ],
+        [
+            'title' => 'Eliminar Categoria',
+            'content' => '',
+            'url' => 'articulos/deletecategory',
+        ],
+        
     ],
     'comentarios' => [
         [
             'title' => 'Eliminar',
             'content' => '',
             'url' => 'comentarios/eliminar',
-        ],
-        [
-            'title' => 'Modificar',
-            'content' => '',
         ],
     ],
     'usuarios' => [

@@ -21,20 +21,16 @@ class Category_model extends CI_Model
 
     public function modificar_categoria()
     {
-        $id   = $this->input->POST('id');
+        $id = $this->input->POST('id');
         $name = $this->input->POST('category');
         $this->db->query("UPDATE `category` SET `name` = '$name' WHERE `category`.`id` = $id");
     }
 
-    public function insertar_categoria()
+    public function insertCategory($data)
     {
-        $category = $this->input->POST('category');
-        return $this->db->query("INSERT INTO `category` (`id`, `name`) VALUES (NULL, '$category');");
+        $this->db->insert('category', $data);
     }
 
-    public function eliminar_categoria($id_cat)
-    {
-        $this->db->query("DELETE FROM `category` where `id` = '$id_cat'");
-    }
+
 
 }
