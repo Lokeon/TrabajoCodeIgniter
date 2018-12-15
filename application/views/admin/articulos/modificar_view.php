@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<h1 class="card-title text-center">Modificar</h1>
+<h1 class="card-title text-center">Modificar Articulo</h1>
 <?php print form_open('admin/articulos/modificar'); ?>
   <div class="form-group">
   <?php print(generate_select("Articulo", $articles, true)); ?>

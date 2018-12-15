@@ -28,9 +28,7 @@ class Category_model extends CI_Model
 
     public function insertCategory($data)
     {
-        $this->db->insert('category', $data);
+        $this->db->insert("category",$data);
     }
-
-
 
 }

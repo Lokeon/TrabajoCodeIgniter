@@ -75,7 +75,10 @@ class Admin extends CI_Controller
                             print($this->parser->parse('admin/articulos/insert_brand_view', [], true));
                         };
                     } else {
-                        $this->brands_model->insertBrands($this->input->post('name'));
+                        $formdata = array_filter([
+                            'name' => $this->input->post('name'),
+                        ]);
+                        $this->brands_model->insertBrands($formdata);
                         redirect('admin/articulos');
                     }
                     break;
@@ -84,8 +87,8 @@ class Admin extends CI_Controller
                         print($this->parser->parse('admin/articulos/delete_brand_view', [], true));
                     };
                     break;
-                case 'insertcategory':
-                    if ($this->form_validation->run('admin/articulos/insertcategory') === false) {
+                case 'insertcat':
+                    if ($this->form_validation->run('admin/articulos/insertcat') === false) {
                         $data['function'] = function () {
                             print($this->parser->parse('admin/articulos/insert_category_view', [], true));
                         };

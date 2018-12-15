@@ -16,12 +16,12 @@ class Articles_model extends CI_Model
     public function getArticlesArray($offset, $limit) //
 
     {
-        $query  = "SELECT id,name,image FROM articles LIMIT $offset, $limit";
+        $query = "SELECT id,name,image FROM articles LIMIT $offset, $limit";
         $result = $this->db->query($query);
-        $data   = $result->result_array();
+        $data = $result->result_array();
         for ($i = 0; $i < count($data); ++$i) {
-            $data[$i]['index']   = $i;
-            $data[$i]['url']     = base_url('article/' . $data[$i]['id']);
+            $data[$i]['index'] = $i;
+            $data[$i]['url'] = base_url('article/' . $data[$i]['id']);
             $data[$i]['average'] = $this->getStar($data[$i]['id']);
         }
         return $data;

@@ -3,17 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $config = [
     'articulos' => [
         [
-            'title' => 'Insertar',
+            'title' => 'Insertar Articulo',
             'content' => '',
             'url' => 'articulos/insertar',
         ],
         [
-            'title' => 'Eliminar',
+            'title' => 'Eliminar Articulo',
             'content' => '',
             'url' => 'articulos/eliminar',
         ],
         [
-            'title' => 'Modificar',
+            'title' => 'Modificar Articulo',
             'content' => '',
             'url' => 'articulos/modificar',
         ],
@@ -30,7 +30,7 @@ $config = [
         [
             'title' => 'Insertar Categoria',
             'content' => '',
-            'url' => 'articulos/insertcategory',
+            'url' => 'articulos/insertcat',
         ],
         [
             'title' => 'Eliminar Categoria',

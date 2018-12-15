@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<h1 class="card-title text-center">Insertar</h1>
+<h1 class="card-title text-center">Insertar Articulo</h1>
 <?php print form_open('admin/articulos/insertar'); ?>
   <div class="form-group">
     <label for="nombre">Nombre Articulo</label>
