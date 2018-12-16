@@ -16,10 +16,10 @@
         </li>
         <?php else: ?>
         <li>
-            <a href="#"><i class="fas fa-user"></i>Perfil</a>
+            <a href="<?=base_url('welcome/profile') ?>"><i class="fas fa-user"></i>Perfil</a>
         </li>
         <li>
-            <a href="#"><i class="fas fa-comments"></i></i>Reviews</a>
+            <a href="<?=base_url('welcome/comments') ?>"><i class="fas fa-comments"></i></i>Reviews</a>
         </li>
         <?php endif; ?>
         <li>

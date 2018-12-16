@@ -36,4 +36,14 @@ class Welcome extends CI_Controller
     {
         redirect("/Log_in");
     }
+
+    public function profile()
+    {
+        redirect("/User/profile");
+    }
+
+    public function comments()
+    {
+        redirect("/User/comments");
+    }
 }
