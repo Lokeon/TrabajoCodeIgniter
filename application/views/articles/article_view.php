@@ -3,14 +3,17 @@
     <div class="row">
         <div class="card flex-row flex-wrap">
             <div class="card-header border-0">
-                <img src="<?=$image ?>" width="100px" height="100px">
+                <img src="<?=$image ?>" width="300px" height="300px">
+            </div>
+            <div class="card-block px-2 pt-3">
+                <h4 class="card-title ">
+                    <h2><?=$name ?></h2>
+                </h4>
             </div>
             <div class="card-block px-2">
-                <h4 class="card-title">
-                    <?=$name ?>
-                </h4>
-                <div id="star-0" class="stars">
-                </div>
+                <div id="star-0" class="stars"></div>
+            <div>
+            <div class="card-block px-2 pb-5">
                 <p class="card-text">
                     <?=$description ?>
                 </p>
