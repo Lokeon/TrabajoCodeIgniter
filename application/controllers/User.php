@@ -12,8 +12,14 @@ class User extends CI_Controller
         generate_view($this, "Perfil", "/user/perfil_view");
     }
 
-    public function comments() 
+    public function comments()
     {
         generate_view($this, "Reviews", "/user/comments_view");
     }
+    
+    /*
+    public function getId()
+    {
+        return $this->user_model
+    }*/
 }
