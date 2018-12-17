@@ -16,7 +16,7 @@ class User extends CI_Controller
 
     public function comments()
     {
-        generate_view($this, "Reviews", "/user/comments_view,", $data);
+        generate_view($this, "Reviews", "/user/comments_view");
     }
 
 }
