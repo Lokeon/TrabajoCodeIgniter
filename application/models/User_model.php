@@ -12,7 +12,7 @@ class User_model extends CI_Model
         $consulta = $this->db->query("SELECT * FROM users ORDER BY username ASC");
         return $consulta->result_array();
     }
-    
+
     public function getUsers()
     {
         $consulta = $this->db->query("SELECT * FROM users WHERE type = 0 ORDER BY username ASC");
@@ -21,14 +21,14 @@ class User_model extends CI_Model
 
     public function getComments($user)
     {
-        $consulta = $this->db->query("SELECT comment FROM comments WHERE id_user 
+        $consulta = $this->db->query("SELECT comment FROM comments WHERE id_user
                   IN(SELECT id FROM users WHERE username='$user') ORDER BY created DESC LIMIT 2");
         return ['comments' => $consulta->result_array()];
     }
 
-    public function user_info($user,$by="username")
+    public function user_info($user, $by = "username")
     {
-        $consulta = $this->db->query("SELECT username,created,email FROM users WHERE $by='$user'");
+        $consulta = $this->db->query("SELECT id,username,created,email FROM users WHERE $by='$user'");
         return $consulta->result_array();
     }
 
