@@ -16,6 +16,7 @@ $(document).ready(function() {
                 data: { function: 'check', args: ["<?= $id ?>", $('#actpass').val()] },
                 dataType:'json'
             }).done(function(data) {
+                console.log(data);
                 if(data == 1 && $('#newpass').val() === $('#repass').val()) {
                     $.ajax({
                         type:"POST",
