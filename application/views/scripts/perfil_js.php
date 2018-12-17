@@ -23,7 +23,8 @@ $(document).ready(function() {
                         data: { function: 'update', args: ["<?= $id ?>", $('#newpass').val()] },
                         dataType:'json'
                     }).done(function (data) {
-                        
+                        $('#newpass').val('');
+                        $('#repass').val('');
                         window.alert("Contraseña cambiada");
                     });
                 }
