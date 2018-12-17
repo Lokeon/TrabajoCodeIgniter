@@ -18,6 +18,6 @@
     </div>
   </div>
 </div>
-<h1 class="card-title text-center">Modificar Usuario</h1>
+<h1 class="card-title text-center">Crear Administrador</h1>
 <div class="list-group" id="response">
 </div>
