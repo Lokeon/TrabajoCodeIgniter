@@ -17,7 +17,9 @@ $(document).ready(function() {
                 dataType:'json'
             }).done(function(data) {
                 console.log(data);
+                
                 if(data && $('#newpass').val() === $('#repass').val()) {
+                    console.log($('#newpass').val() === $('#repass').val());
                     $.ajax({
                         type:"POST",
                         url: '<?= base_url("User/changePassword"); ?>',
