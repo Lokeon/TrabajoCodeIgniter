@@ -16,19 +16,17 @@ $(document).ready(function() {
                 data: { function: 'check', args: ["<?= $id ?>", $('#actpass').val()] },
                 dataType:'json'
             }).done(function(data) {
-                console.log(data);
                 if(data && $('#newpass').val() === $('#repass').val()) {
-                    console.log($('#newpass').val() === $('#repass').val());
                     $.ajax({
                         type:"POST",
                         url: '<?= base_url("User/changePassword"); ?>',
                         data: { function: 'update', args: ["<?= $id ?>", $('#newpass').val()] },
                         dataType:'json'
                     }).done(function (data) {
-                        console.log(data);
+                        
+                        window.alert("Contraseña cambiada");
                     });
                 }
-                console.log("no ajax");
             });
         }
     });

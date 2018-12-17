@@ -31,7 +31,6 @@ class User extends CI_Controller
                     $args[0],
                     password_hash($args[1], PASSWORD_BCRYPT, array('cost' => 11))
                 );
-                //$response = [$args[0], password_hash($args[1], PASSWORD_BCRYPT, array('cost' => 11))];
                 break;
         }
         print(json_encode($response));

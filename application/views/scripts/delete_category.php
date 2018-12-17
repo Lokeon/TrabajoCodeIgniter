@@ -3,7 +3,7 @@
 $(document).ready(function() {
     $.ajax({
         type:"POST",
-        url: '<?=base_url("admin/listCategory"); ?>',
+        url: '<?= base_url("admin/listCategory"); ?>',
         dataType:'json'
     }).done(function(data) {
         $list = $('#response');
@@ -26,7 +26,7 @@ $(document).ready(function() {
             $("#confirm").modal('hide');
             $.ajax({
                 type: "POST",
-                url: '<?=base_url("admin/removeCategory"); ?>',
+                url: '<?= base_url("admin/removeCategory"); ?>',
                 dataType:'json',
                 data: { id: element}
             }).done(function(data) {
