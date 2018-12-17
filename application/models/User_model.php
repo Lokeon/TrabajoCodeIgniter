@@ -21,7 +21,7 @@ class User_model extends CI_Model
 
     public function user_info($user,$by="username")
     {
-        $consulta = $this->db->query("SELECT username,created,email FROM users WHERE $by=$username");
+        $consulta = $this->db->query("SELECT username,created,email FROM users WHERE $by='$user'");
         return $consulta->result_array();
     }
 
