@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="container" style="padding-top:20px">
     <div class="row">
-        <div class="card flex-row flex-wrap text-center">
+        <div class="card flex-row flex-wrap">
             <div class="card-header border-0">
                 <img src="<?=$image ?>" width="300px" height="300px">
             </div>
