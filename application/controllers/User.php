@@ -27,10 +27,11 @@ class User extends CI_Controller
                 $response = $this->log_in_model->is_valid_pass_by('id', $args[0], $args[1]);
                 break;
             case 'update':
-                $response = $this->user_model->updatePassword(
-                    $args[0],
-                    password_hash($args[1], PASSWORD_BCRYPT, array('cost' => 11))
-                );
+                // $response = $this->user_model->updatePassword(
+                //     $args[0],
+                //     password_hash($args[1], PASSWORD_BCRYPT, array('cost' => 11))
+                // );
+                $response = "jajajja";
                 break;
         }
         print(json_encode($response));
