@@ -5,14 +5,14 @@
             <div class="post-heading">
                 <div class="meta">
                     <div class="title h5">
-                        <b>{usuario}</b>
+                        <b><?= $user ?></b>
                     </div>
-                        <h6 class="text-muted time">{fecha}</h6>
+                        <h6 class="text-muted time"><?= $date ?></h6>
                         {estrellas}
                     </div>
                 </div>
                 <div class="post-description">
-                    <p>{comentario}</p>
+                    <p><?= $comment ?></p>
                 </div>
             </div>
         </div>
