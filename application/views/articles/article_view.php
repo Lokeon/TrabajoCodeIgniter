@@ -13,10 +13,10 @@
                         <br>
                         <ul style="padding-left:20px; font-size:1.2rem">
                             <?php
-                                $s = explode('*', $description);
-                                foreach ($s as $string) {
-                                    print ("<li>$string</li>");
-                                }
+                            $s = explode('*', $description);
+                            foreach ($s as $string) {
+                                print("<li>$string</li>");
+                            }
                             ?>
                         </ul>
                     </div>
@@ -30,7 +30,9 @@
                 <div class="card-title" style="font-size:1.2rem">
                     <b>Añadir review<b>
                 </div>
-                <div id="star-0" class="stars"></div>
+                <div id="star-comment" class="stars"></div>
+                <input id="article" type="hidden" value="<?= $id ?>">
+                <input id="user" type="hidden" value="<?= $this->session->userdata('userinfo')[0]['id'] ?>">
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Escribe tu comentario"></textarea>
                 </div>

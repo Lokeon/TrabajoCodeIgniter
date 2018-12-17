@@ -8,5 +8,24 @@ $(document).ready(function() {
             $('#user').attr('readonly', true);
         }
     });
+    $('#pass').on('click',function () {
+        if($('#actpass').val() !== "") {
+            $.ajax({
+                type:"POST",
+                url: '<?= base_url("User/changePassword"); ?>',
+                data: { function: 'check', args: ["<?= $id ?>", $('#actpass').val()] },
+                dataType:'json'
+            }).done(function(data) {
+                if(data == 1 && $('#newpass').val() === $('#repass').val()) {
+                    $.ajax({
+                        type:"POST",
+                        url: '<?= base_url("User/changePassword"); ?>',
+                        data: { function: 'update', args: ["<?= $id ?>", $('#newpass').val()] },
+                        dataType:'json'
+                    });
+                }
+            });
+        }
+    });
 });
 </script>
