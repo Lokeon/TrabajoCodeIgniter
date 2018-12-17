@@ -24,6 +24,7 @@ class Articles extends CI_Controller
         $data = array_merge($this->articles_model->getArticle($id),
             $this->articles_model->getComments($id));
         $foot["scores"] = $this->articles_model->getStar($id);
+        $data['id']     = $id;
         generate_view($this, "Articulo", "articles/article_view", $data, $foot);
     }
 }
