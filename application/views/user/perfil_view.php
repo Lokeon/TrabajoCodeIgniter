@@ -4,18 +4,18 @@
         <div class="card-body">
             <h3 class="m-y-2"><b>Perfil del usuario</b></h3>
             <div class="row">
-                <div class="col-md-6">
-                    <h6><b>Nombre de usuario</b></h6>
+                <div class="col-md-8">
+                    <h4><b>Nombre de usuario</b></h4>
                     <p class="ml-3">
-                        {username}
+                        <h6><?= $username ?></h6>
                     </p>
-                    <h6><b>Correo electrónico</b></h6>
+                    <h4><b>Correo electrónico</b></h4>
                     <p class="ml-3">
-                        {correo}
+                        <h6><?= $email ?></h6>
                     </p>
-                    <h6><b>Esta cuenta se creo el:</b></h6>
+                    <h4><b>Esta cuenta se creo el:</b></h4>
                     <p class="ml-3">
-                        {fecha}
+                        <h6><?= $created ?></h6>
                     </p>
                 </div>                   
             </div>
@@ -26,7 +26,9 @@
             <h3 class="m-y-2">Reviews</h3>
             <div class="row">
                 <div class="col-md-6">
-                    {reviews}
+                    <h6> <?php for($i = 0 ; $i < count($comments); ++$i){ 
+                        print($comments[$i]['comment']."<br/>");
+                        } ?> </h6>
                 </div>
             </div>
         </div>

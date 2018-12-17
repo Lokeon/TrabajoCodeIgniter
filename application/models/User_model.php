@@ -19,6 +19,13 @@ class User_model extends CI_Model
         return $consulta->result_array();
     }
 
+    public function getComments($user)
+    {
+        $consulta = $this->db->query("SELECT comment FROM comments WHERE id_user 
+                  IN(SELECT id FROM users WHERE username='$user') ORDER BY created DESC LIMIT 2");
+        return ['comments' => $consulta->result_array()];
+    }
+
     public function user_info($user,$by="username")
     {
         $consulta = $this->db->query("SELECT username,created,email FROM users WHERE $by='$user'");
