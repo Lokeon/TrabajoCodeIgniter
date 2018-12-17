@@ -17,12 +17,14 @@ $(document).ready(function() {
                 dataType:'json'
             }).done(function(data) {
                 console.log(data);
-                if(data == 1 && $('#newpass').val() === $('#repass').val()) {
+                if(data && $('#newpass').val() === $('#repass').val()) {
                     $.ajax({
                         type:"POST",
                         url: '<?= base_url("User/changePassword"); ?>',
                         data: { function: 'update', args: ["<?= $id ?>", $('#newpass').val()] },
                         dataType:'json'
+                    }).done(function (data){
+                        console.log(data);
                     });
                 }
             });
