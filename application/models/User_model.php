@@ -21,7 +21,7 @@ class User_model extends CI_Model
 
     public function updatePassword($id, $pass)
     {
-        $this->db->query("UPDATE users SET pass = $pass WHERE id=$id");
+        $this->db->query("UPDATE users SET pass='$pass' WHERE id=$id");
         return $this->db->affected_rows();
     }
 
