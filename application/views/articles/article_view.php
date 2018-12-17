@@ -5,15 +5,15 @@
             <div class="container-fluid py-3">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="//c1.staticflickr.com/5/4811/31389348647_22158c1637.jpg" class="img-fluid" width="400px" height="400px">
+                        <img src="<?= $image ?>" class="img-fluid" width="400px" height="400px">
                     </div>
                     <div class="col-md-8">
-                        <h3>Artículo</h3>
+                        <h3><?= $name ?></h3>
                         <div id="star-1" class="stars"></div>
                         <br>
                         <ul style="padding-left:20px; font-size:1.2rem">
                             <?php
-                                $s = explode('*', "Es muy bonito*Es pequeño*Es rojo*Me gusta*Comentario 1*Comentario 2*Comentario 3*Comentario 4*Comentario 5");
+                                $s = explode('*', $description);
                                 foreach ($s as $string) {
                                     print ("<li>$string</li>");
                                 }
