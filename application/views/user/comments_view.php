@@ -1,13 +1,12 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-14">
-            <div class="panel panel-white post panel-shadow">
-                <div class="post-heading">
-                    <div class="meta">
-                        <div class="title h5">
-                            <b>{usuario}</b>
-                        </div>
+<div class="container" style="padding-top:20px">
+    <div class="card bg-white shadow" style="width: 100%!important;">
+        <div class="card-body">
+            <div class="post-heading">
+                <div class="meta">
+                    <div class="title h5">
+                        <b>{usuario}</b>
+                    </div>
                         <h6 class="text-muted time">{fecha}</h6>
                         {estrellas}
                     </div>

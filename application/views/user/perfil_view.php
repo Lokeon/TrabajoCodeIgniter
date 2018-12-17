@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<div class="container">
-    <div class="row m-y-2">
-        <div class="col-lg-8 push-lg-4">
+<div class="container" style="padding-top:20px">
+    <div class="card bg-white shadow" style="width: 100%!important;">
+        <div class="card-body">
             <h3 class="m-y-2"><b>Perfil del usuario</b></h3>
             <div class="row">
                 <div class="col-md-6">
@@ -19,6 +19,10 @@
                     </p>
                 </div>                   
             </div>
+        </div>
+    </div>
+    <div class="card bg-white shadow mt-3" style="width: 100%!important;">
+        <div class="card-body">
             <h3 class="m-y-2">Reviews</h3>
             <div class="row">
                 <div class="col-md-6">
