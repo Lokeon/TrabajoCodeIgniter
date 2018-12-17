@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-md-8">
                         <h3><?= $name ?></h3>
-                        <div id="star-1" class="stars"></div>
+                        <div id="star-0" class="stars"></div>
                         <br>
                         <ul style="padding-left:20px; font-size:1.2rem">
                             <?php
