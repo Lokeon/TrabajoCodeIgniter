@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Escribe tu comentario"></textarea>
                 </div>
-                <button id="comment" type="submit" class="btn btn-primary float-right">Enviar</button>
+                <button id="comment" type="submit" class="btn btn-primary float-right" <?php print((!$this->session->userdata('admin') && $this->session->userdata('logged') ? "" : "disabled")); ?>>Enviar</button>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ $(document).ready(function() {
         } else {
             $('#user').attr('readonly', true);
         }
+        //$this->form_validation->is_unique($user, "users.username")
     });
     $('#pass').on('click',function () {
         if($('#actpass').val() !== "") {
@@ -23,6 +24,7 @@ $(document).ready(function() {
                         data: { function: 'update', args: ["<?= $id ?>", $('#newpass').val()] },
                         dataType:'json'
                     }).done(function (data) {
+                        $('#actpass').val('');
                         $('#newpass').val('');
                         $('#repass').val('');
                         window.alert("Contraseña cambiada");
