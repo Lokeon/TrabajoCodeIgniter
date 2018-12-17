@@ -16,7 +16,7 @@
                     <p class="ml-3">
                         <h6><?=$email ?></h6>
                     </p>
-                    <h4><b>Esta cuenta se creo el:</b></h4>
+                    <h4><b>Fecha de creación</b></h4>
                     <p class="ml-3">
                         <h6><?=$created ?></h6>
                     </p>
