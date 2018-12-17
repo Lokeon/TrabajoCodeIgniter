@@ -12,11 +12,11 @@
             </div>
             <div class="card-block px-2 pb-5">
                 <p class="list-group">
-                    <?php
-                    $s = explode('.', $description);
-                    foreach ($s as $key) {
-                        print($key."<br/>");
-                    }; ?>
+                <?php
+                $s = explode('*', $description);
+                foreach ($s as $key) {
+                    print("-" . $key . "<br/>");
+                }; ?>
                 </p>
             </div>
             <ul class="list-group">
