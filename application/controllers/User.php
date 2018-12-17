@@ -18,9 +18,23 @@ class User extends CI_Controller
         generate_view($this, "Reviews", "/user/comments_view");
     }
 
-    public function checkPassword()
+    public function changePassword()
     {
-
+        $args = $this->input->post('args');
+        header('Content-Type: application/json');
+        switch ($this->input->post('function')) {
+            case 'check':
+                $response = $this->log_in_model->is_valid_pass_by('id', $args[0], $args[1]);
+                break;
+            case 'update':
+                $response = $this->user_model->updatePassword(
+                    $args[0],
+                    password_hash($args[1], PASSWORD_BCRYPT, array('cost' => 11))
+                );
+                break;
+        }
+        print(json_encode($response));
+        http_response_code(200);
     }
 
 }

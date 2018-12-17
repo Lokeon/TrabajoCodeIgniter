@@ -19,6 +19,12 @@ class User_model extends CI_Model
         return $consulta->result_array();
     }
 
+    public function updatePassword($id, $pass)
+    {
+        $this->db->query("UPDATE users SET pass = $pass WHERE id=$id");
+        return $this->db->affected_rows();
+    }
+
     public function getComments($user)
     {
         $consulta = $this->db->query("SELECT comment FROM comments WHERE id_user
