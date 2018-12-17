@@ -16,21 +16,22 @@ $(document).ready(function () {
 });
 </script>
 <?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article") {
-    print($this->parser->parse('scripts/stars_js', ['scores' => $scores], true));
-} elseif ($this->uri->uri_string() === "admin/comentarios/eliminar") {
-    print($this->parser->parse('scripts/delete_comments', [], true));
-} elseif ($this->uri->uri_string() === "admin/articulos/eliminar") {
-    print($this->parser->parse('scripts/delete_article_js', [], true));
-} elseif ($this->uri->uri_string() === "admin/articulos/deletebrand") {
-    print($this->parser->parse('scripts/delete_brand', [], true));
-} elseif ($this->uri->uri_string() === "admin/articulos/deletecategory") {
-    print($this->parser->parse('scripts/delete_category', [], true));
-} elseif ($this->uri->uri_string() === "admin/usuarios/eliminar") {
-    print($this->parser->parse('scripts/delete_user', [], true));
-} elseif ($this->uri->uri_string() === "admin/usuarios/modify") {
-    print($this->parser->parse('scripts/modify_user', [], true));
-}
-
+        print($this->parser->parse('scripts/stars_js', ['scores' => $scores], true));
+    } elseif ($this->uri->uri_string() === "admin/comentarios/eliminar") {
+        print($this->parser->parse('scripts/delete_comments', [], true));
+    } elseif ($this->uri->uri_string() === "admin/articulos/eliminar") {
+        print($this->parser->parse('scripts/delete_article_js', [], true));
+    } elseif ($this->uri->uri_string() === "admin/articulos/deletebrand") {
+        print($this->parser->parse('scripts/delete_brand', [], true));
+    } elseif ($this->uri->uri_string() === "admin/articulos/deletecategory") {
+        print($this->parser->parse('scripts/delete_category', [], true));
+    } elseif ($this->uri->uri_string() === "admin/usuarios/eliminar") {
+        print($this->parser->parse('scripts/delete_user', [], true));
+    } elseif ($this->uri->uri_string() === "admin/usuarios/modify") {
+        print($this->parser->parse('scripts/modify_user', [], true));
+    } elseif ($this->uri->uri_string() === "User/profile") {
+        print($this->parser->parse('scripts/perfil_js', [], true));
+    }
 ?>
 </body>
 </html>
