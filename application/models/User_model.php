@@ -9,13 +9,19 @@ class User_model extends CI_Model
 
     public function get_users()
     {
-        $consulta = $this->db->query('SELECT * FROM users ORDER BY username ASC');
+        $consulta = $this->db->query("SELECT * FROM users ORDER BY username ASC");
         return $consulta->result_array();
     }
     
     public function getUsers()
     {
-        $consulta = $this->db->query('SELECT * FROM users WHERE type = 0 ORDER BY username ASC');
+        $consulta = $this->db->query("SELECT * FROM users WHERE type = 0 ORDER BY username ASC");
+        return $consulta->result_array();
+    }
+
+    public function user_info($user,$by="username")
+    {
+        $consulta = $this->db->query("SELECT username,created,email FROM users WHERE $by=$username");
         return $consulta->result_array();
     }
 
