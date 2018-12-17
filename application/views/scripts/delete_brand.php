@@ -20,19 +20,21 @@ $(document).ready(function() {
         console.log(data);
     });
     $('#response').on('click', '.btn-remove', function() {
-        if(confirm("¿Esta seguro de eliminar la marca?")) {
+        $('#confirm').modal('show');
+        var element = $(this).closest('div').parent().attr('id');
+        $('#si').on('click', function() {
+            $("#confirm").modal('hide');
             $.ajax({
                 type: "POST",
                 url: '<?=base_url("admin/removeBrand"); ?>',
                 dataType:'json',
-                data: { id: $(this).closest('div').parent().attr('id')}
+                data: { id: element}
             }).done(function(data) {
-        console.log(data);
             });
-            $(this).closest('div').parent().fadeOut('slow', function(){
+            $('#'+element).fadeOut('slow', function(){
                 $(this).remove();
             });
-        }
+        });
     });
 });
 </script>

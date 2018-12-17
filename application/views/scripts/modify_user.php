@@ -16,23 +16,25 @@ $(document).ready(function() {
                 </div>
             </div>
             `);
-        });  
+        });
         console.log(data);
     });
     $('#response').on('click', '.btn-remove', function() {
-        if(confirm("¿Esta seguro de convertir el usuario en administrador?")) {
+        $('#confirm').modal('show');
+        var element = $(this).closest('div').parent().attr('id');
+        $('#si').on('click', function() {
+            $("#confirm").modal('hide');
             $.ajax({
                 type: "POST",
                 url: '<?=base_url("admin/modifyUser"); ?>',
                 dataType:'json',
-                data: { id: $(this).closest('div').parent().attr('id')}
+                data: { id: element}
             }).done(function(data) {
-        console.log(data);
             });
-            $(this).closest('div').parent().fadeOut('slow', function(){
+            $('#'+element).fadeOut('slow', function(){
                 $(this).remove();
             });
-        }
+        });
     });
 });
 </script>
