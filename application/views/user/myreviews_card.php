@@ -5,7 +5,7 @@
             <div class="post-heading">
                 <div class="meta">
                     <div class="title h5">
-                        <b>{username}</b>
+                        <b><a href="{url}">{name}</a></b>
                         <h6 class="text-muted time float-right">{created}</h6>
                     </div>
                         <div id="star-{index}" class="stars"></div>
@@ -13,6 +13,7 @@
                 <div class="post-description">
                     <p>{comment}</p>
                 </div>
+
             </div>
         </div>
     </div>

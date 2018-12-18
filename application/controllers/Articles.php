@@ -7,24 +7,26 @@ class Articles extends CI_Controller
         parent::__construct();
     }
 
-    public function testArticle()
-    {
-        print($this->articles_model->getStar('1'));
-    }
-
-    public function testArticleUser()
-    {
-        print($this->articles_model->getStarUser(1, 1));
-        $this->articles_model->updateStar(1, 1);
-        print($this->articles_model->getStarUser(1, 1));
-    }
-
     public function article($id)
     {
         $data = array_merge($this->articles_model->getArticle($id),
             $this->articles_model->getComments($id));
-        $foot["scores"] = $this->articles_model->getStar($id);
+        $string = $this->articles_model->getStar($id) . ",";
+        $string .= implode(',', array_column($data["comments"], 'stars'));
+        $foot["scores"] = $string;
         $data['id']     = $id;
         generate_view($this, "Articulo", "articles/article_view", $data, $foot);
+    }
+
+    public function addReview()
+    {
+        $data = array_filter([
+            'id_article' => $this->input->post('article'),
+            'id_user'    => $this->input->post('user'),
+            'comment'    => $this->input->post('text'),
+            'stars'      => $this->input->post('score'),
+        ]);
+        header('Content-Type: application/json');
+        print(json_encode($this->articles_model->addReview($data)));
     }
 }

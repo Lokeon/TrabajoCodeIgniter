@@ -16,12 +16,12 @@ class Articles_model extends CI_Model
     public function getArticlesArray($offset, $limit) //
 
     {
-        $query = "SELECT id,name,image FROM articles LIMIT $offset, $limit";
+        $query  = "SELECT id,name,image FROM articles LIMIT $offset, $limit";
         $result = $this->db->query($query);
-        $data = $result->result_array();
+        $data   = $result->result_array();
         for ($i = 0; $i < count($data); ++$i) {
-            $data[$i]['index'] = $i;
-            $data[$i]['url'] = base_url('article/' . $data[$i]['id']);
+            $data[$i]['index']   = $i;
+            $data[$i]['url']     = base_url('article/' . $data[$i]['id']);
             $data[$i]['average'] = $this->getStar($data[$i]['id']);
         }
         return $data;
@@ -65,7 +65,7 @@ class Articles_model extends CI_Model
 
     public function getComments($id)
     {
-        $comment = $this->db->query("SELECT comment,created,stars FROM comments WHERE id_article=$id");
+        $comment = $this->db->query("SELECT username, comment,comments.created,stars FROM comments, users WHERE id_article=$id AND users.id=id_user ORDER BY comments.created DESC");
         return ['comments' => $comment->result_array()];
     }
 
@@ -85,6 +85,12 @@ class Articles_model extends CI_Model
     {
         $this->db->delete('comments', ['id_article' => $id]);
         $this->db->delete('articles', ['id' => $id]);
+        return $this->db->affected_rows();
+    }
+
+    public function addReview($data)
+    {
+        $this->db->insert('comments', $data);
         return $this->db->affected_rows();
     }
 }

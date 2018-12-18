@@ -27,9 +27,8 @@ class User_model extends CI_Model
 
     public function getComments($user)
     {
-        $consulta = $this->db->query("SELECT comment FROM comments WHERE id_user
-                  IN(SELECT id FROM users WHERE username='$user') ORDER BY created DESC LIMIT 2");
-        return ['comments' => $consulta->result_array()];
+        $comments = $this->db->query("SELECT username, comment,comments.created,stars,name,id_article FROM comments, users, articles WHERE id_user=$user AND users.id=id_user AND articles.id=id_article ORDER BY comments.created DESC");
+        return ['comments' => $comments->result_array()];
     }
 
     public function user_info($user, $by = "username")
@@ -48,6 +47,12 @@ class User_model extends CI_Model
     public function modifyUser($id)
     {
         $this->db->query("UPDATE users SET type = 1 WHERE id = $id");
+        return $this->db->affected_rows();
+    }
+
+    public function updateUser($id, $user)
+    {
+        $this->db->query("UPDATE users SET username='$user' WHERE id=$id");
         return $this->db->affected_rows();
     }
 

@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
 });
 </script>
-<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->segment(1) == "article") {
+<?php if ($this->uri->segment(1) == "welcome" || $this->uri->segment(1) == "" || $this->uri->uri_string() === "User/comments") {
         print($this->parser->parse('scripts/stars_js', ['scores' => $scores], true));
     } elseif ($this->uri->uri_string() === "admin/comentarios/eliminar") {
         print($this->parser->parse('scripts/delete_comments', [], true));
@@ -31,6 +31,8 @@ $(document).ready(function () {
         print($this->parser->parse('scripts/modify_user', [], true));
     } elseif ($this->uri->uri_string() === "User/profile") {
         print($this->parser->parse('scripts/perfil_js', [], true));
+    } elseif ($this->uri->segment(1) === "article") {
+        print($this->parser->parse('scripts/comment_form', ['scores' => $scores], true));
     }
 ?>
 </body>
