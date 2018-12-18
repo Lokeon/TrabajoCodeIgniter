@@ -17,5 +17,4 @@ Backtrace:
 	Function: <?php echo $error['function'], "\n\n"; ?>
 <?php		endif ?>
 <?php	endforeach ?>
-
 <?php endif ?>

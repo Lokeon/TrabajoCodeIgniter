@@ -43,16 +43,16 @@ class Log_in extends CI_Controller
                 generate_view($this, 'Log in', 'log_in_view');
             } else {
                 $sess = [
-                    'user'   => set_value('username'),
+                    'user' => set_value('username'),
                     'logged' => true,
-                    'admin'  => false,
+                    'admin' => false,
                 ];
                 $user = set_value('username');
                 if (valid_email($user) === true) {
-                    $sess['admin']    = $this->log_in_model->is_admin($user, 'email');
+                    $sess['admin'] = $this->log_in_model->is_admin($user, 'email');
                     $sess['userinfo'] = $this->user_model->user_info($user, 'email');
                 } else {
-                    $sess['admin']    = $this->log_in_model->is_admin($user);
+                    $sess['admin'] = $this->log_in_model->is_admin($user);
                     $sess['userinfo'] = $this->user_model->user_info($user);
                 }
 

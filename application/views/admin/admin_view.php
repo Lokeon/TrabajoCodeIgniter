@@ -5,19 +5,20 @@
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                     <a class="nav-link
-        <?php is_active($this, 'articulos'); ?>" href="<?=base_url('admin/articulos'); ?>">Articulos</a>
+                    <?php is_active($this, 'articulos'); ?>" href="<?= base_url('admin/articulos'); ?>">Articulos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link
-        <?php is_active($this, 'comentarios') ?>" href="<?=base_url('admin/comentarios'); ?>">Comentarios</a>
+                    <?php is_active($this, 'comentarios') ?>" href="<?= base_url('admin/comentarios'); ?>">Comentarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link
-        <?php is_active($this, 'usuarios') ?>" href="<?=base_url('admin/usuarios'); ?>">Usuarios</a>
+                    <?php is_active($this, 'usuarios') ?>" href="<?= base_url('admin/usuarios'); ?>">Usuarios</a>
+                </li>
             </ul>
         </div>
         <div class="card-body">
-        <?php $function(); ?>
+            <?php $function(); ?>
         </div>
     </div>
 </div>

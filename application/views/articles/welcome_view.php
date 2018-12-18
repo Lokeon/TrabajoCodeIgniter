@@ -11,5 +11,5 @@
     );
 ?>
 <div class="row justify-content-center" id="paginator" style="margin-top: 20px;">
-<?php print $links; ?>
+    <?php print $links; ?>
 </div>

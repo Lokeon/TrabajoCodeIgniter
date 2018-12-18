@@ -8,9 +8,7 @@
  * @version : 0.1.1
  *
  */
-
 ;(function($) {
-
   var methods = {
     init: function(settings) {
       return this.each(function() {

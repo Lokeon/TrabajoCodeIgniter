@@ -10,13 +10,11 @@
                         <label for="inputUserName">Nombre de usuario</label>
                     </div>
                     <?php print form_error('username'); ?>
-
                     <div class="form-label-group">
                         <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required name="email">
                         <label for="inputEmail">Correo electrónico</label>
                     </div>
                     <?php print form_error('email'); ?>
-
                     <div class="form-label-group">
                         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="pass">
                         <label for="inputPassword">Contraseña</label>

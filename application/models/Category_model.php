@@ -6,7 +6,7 @@ class Category_model extends CI_Model
     {
         parent::_construct();
     }
-   
+
     public function get_categories()
     {
         $consulta = $this->db->query('SELECT * FROM category ORDER BY name ASC');
@@ -15,7 +15,7 @@ class Category_model extends CI_Model
 
     public function insertCategory($data)
     {
-        $this->db->insert("category",$data);
+        $this->db->insert("category", $data);
     }
 
     public function removeCategory($id)

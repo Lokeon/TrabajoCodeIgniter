@@ -1,8 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class Sign_up_model extends CI_Model
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -30,7 +29,8 @@ class Sign_up_model extends CI_Model
             $this->email->subject('Confirmar correo electrónico');
             $url = base_url() . "Sign_up/validate_email?email=$email&hash=$hash";
             $this->email->message(
-                $this->parser->parse('smtp_email', array('url' => $url), true));
+                $this->parser->parse('smtp_email', array('url' => $url), true)
+            );
             $this->email->send();
             return true;
         } else {

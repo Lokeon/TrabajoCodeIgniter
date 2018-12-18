@@ -19,5 +19,4 @@
   </div>
 </div>
 <h1 class="card-title text-center">Crear Administrador</h1>
-<div class="list-group" id="response">
-</div>
+<div class="list-group" id="response"></div>

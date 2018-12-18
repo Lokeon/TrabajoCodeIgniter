@@ -27,7 +27,7 @@ function generate_select($name, $data, $default = false)
     <label for='$name'>$name</label>
     <select class='form-control' id='$name' name='$name'>";
     $close = "</select>
-  </div>";
+    </div>";
     $string = "";
     $string .= $open;
     if ($default) {

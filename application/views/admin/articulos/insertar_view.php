@@ -10,8 +10,8 @@
     <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
   </div>
   <?php print(generate_select("Marca", $brand)); ?>
-<?php print(generate_select("Categoria", $tags)); ?>
-<div class="form-group">
+  <?php print(generate_select("Categoria", $tags)); ?>
+  <div class="form-group">
     <label for="Tienda">Tienda</label>
     <input type="text" class="form-control" id="Tienda" aria-describedby="Tiendaarticulo" placeholder="Ingrese url tienda" name="store">
   </div>

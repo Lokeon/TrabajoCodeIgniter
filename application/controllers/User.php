@@ -15,7 +15,7 @@ class User extends CI_Controller
 
     public function comments()
     {
-        $data           = $this->user_model->getComments($this->session->userdata('userinfo')[0]['id']);
+        $data = $this->user_model->getComments($this->session->userdata('userinfo')[0]['id']);
         $foot['scores'] = implode(',', array_column($data["comments"], 'stars'));
         generate_view($this, "Reviews", "/user/myreviews", $data, $foot);
     }
@@ -48,7 +48,7 @@ class User extends CI_Controller
                 break;
             case 'update':
                 {
-                    $response                            = $this->user_model->updateUser($args[0], $args[1]);
+                    $response = $this->user_model->updateUser($args[0], $args[1]);
                     $_SESSION['userinfo'][0]['username'] = $args[1];
                 }
                 break;

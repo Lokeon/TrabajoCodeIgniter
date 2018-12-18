@@ -19,5 +19,4 @@
   </div>
 </div>
 <h1 class="card-title text-center">Eliminar Usuario</h1>
-<div class="list-group" id="response">
-</div>
+<div class="list-group" id="response"></div>

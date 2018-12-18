@@ -24,5 +24,4 @@ class Brands_model extends CI_Model
         $this->db->delete('brands', ['id' => $id]);
         return $this->db->affected_rows();
     }
-
 }

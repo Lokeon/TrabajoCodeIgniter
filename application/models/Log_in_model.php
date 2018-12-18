@@ -9,7 +9,7 @@ class Log_in_model extends CI_Model
 
     public function is_valid_pass_by($by, $str, $pass)
     {
-        $query    = "SELECT pass FROM users WHERE $by='$str'";
+        $query = "SELECT pass FROM users WHERE $by='$str'";
         $consulta = $this->db->query($query);
         return password_verify($pass, $consulta->row()->pass);
     }

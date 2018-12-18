@@ -8,7 +8,7 @@
                         <b>{username}</b>
                         <h6 class="text-muted time float-right">{created}</h6>
                     </div>
-                        <div id="star-{index}" class="stars"></div>
+                    <div id="star-{index}" class="stars"></div>
                 </div>
                 <div class="post-description">
                     <p>{comment}</p>

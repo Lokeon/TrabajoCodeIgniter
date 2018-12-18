@@ -9,13 +9,12 @@
                         <input type="text" id="inputEmail" class="form-control" placeholder="Correo electrónico o nombre de usuario" required autofocus name="username">
                         <label for="inputEmail">Nombre de usuario</label>
                     </div>
-
                     <div class="form-label-group">
                         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="pass">
                         <label for="inputPassword">Contraseña</label>
                     </div>
                     <?php print form_error('username'); ?>
-<?php print form_error('pass'); ?>
+                    <?php print form_error('pass'); ?>
                     <div class="custom-control custom-checkbox mb-3">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">Recordarme</label>

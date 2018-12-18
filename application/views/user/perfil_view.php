@@ -7,17 +7,17 @@
                 <div class="col-md-6">
                     <h4><b>Nombre de usuario</b><i class="fas fa-edit" style="padding-left:8px" id="username"></i></h4>
                     <div class="form-group">
-                    <input id="user" type="text" class="form-control" placeholder="<?=$username ?>" readonly>
+                        <input id="user" type="text" class="form-control" placeholder="<?=$username ?>" readonly>
                     </div>
                     <h4><b>Cambiar Contraseña</b><i class="fas fa-edit" style="padding-left:8px" id="pass"></i></h4>
                     <div class="form-group">
-                    <input id="actpass" type="password" class="form-control" placeholder="Contraseña actual">
+                        <input id="actpass" type="password" class="form-control" placeholder="Contraseña actual">
                     </div>
                     <div class="form-group">
-                    <input id="newpass" type="password" class="form-control" placeholder="Nueva contraseña">
+                        <input id="newpass" type="password" class="form-control" placeholder="Nueva contraseña">
                     </div>
                     <div class="form-group">
-                    <input id="repass" type="password" class="form-control" placeholder="Repita la contraseña">
+                        <input id="repass" type="password" class="form-control" placeholder="Repita la contraseña">
                     </div>
                     <h4><b>Correo electrónico</b></h4>
                     <input type="email" class="form-control" placeholder="<?=$email ?>" readonly>
